@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Sparkles } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { LumysicLogo } from './LumysicLogo';
 
 interface FooterProps {
@@ -17,7 +17,7 @@ export const Footer: React.FC<FooterProps> = ({
     <footer className="bg-gradient-to-b from-[#FAF6EB] via-[#F7EFCB] to-[#F2E5BA] text-[#5C5343] border-t-2 border-[#E5D29C] pt-16 pb-24 lg:pb-12 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Columns Grid (Only verified features available on the website) */}
+        {/* Main Columns Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-[#E5D29C]/80">
           
           {/* Column 1: EXPLORE */}
@@ -104,7 +104,6 @@ export const Footer: React.FC<FooterProps> = ({
                 { label: 'Why LUMSIC Platform', id: 'why-astral' },
                 { label: 'Verified Reader Collective', id: 'readers' },
                 { label: 'Consecrated Spiritual Shop', id: 'shop' },
-                { label: 'Astrologer Portal (Astrodashboard)', id: 'astrodashboard' },
               ].map((item, idx) => (
                 <li key={idx}>
                   <button
@@ -140,35 +139,7 @@ export const Footer: React.FC<FooterProps> = ({
             </span>
           </div>
 
-          {/* Astrologer Portal & Admin Dashboard Quick Links */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            <a
-              href="/astrodashboard"
-              onClick={(e) => {
-                e.preventDefault();
-                window.history.pushState({}, '', '/astrodashboard');
-                window.dispatchEvent(new PopStateEvent('popstate'));
-              }}
-              className="text-xs text-[#8C6D23] hover:text-[#2B2418] px-3 py-1.5 rounded-full bg-[#FFFDF9] hover:bg-white border border-[#D6A83F]/60 transition-all flex items-center gap-1 font-bold shadow-xs active:scale-95"
-              title="Open Astrologer Dashboard (Astrodashboard)"
-            >
-              <span>✦ Astrodashboard</span>
-            </a>
-
-            <a
-              href="/admin-dashboard"
-              onClick={(e) => {
-                e.preventDefault();
-                window.history.pushState({}, '', '/admin-dashboard');
-                window.dispatchEvent(new PopStateEvent('popstate'));
-              }}
-              className="text-xs text-[#2B2418] hover:text-[#B45309] px-3 py-1.5 rounded-full bg-[#FFFDF9] hover:bg-white border border-[#E5D29C] transition-all flex items-center gap-1 font-bold shadow-xs active:scale-95"
-              title="Open Admin Dashboard"
-            >
-              <span>Admin Dashboard</span>
-            </a>
-
-            <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2">
               <Globe className="w-3.5 h-3.5 text-[#B45309]" />
               <select
                 value={currentLanguage}
@@ -186,7 +157,6 @@ export const Footer: React.FC<FooterProps> = ({
                 <option value="ja">日本語</option>
                 <option value="ko">한국어</option>
               </select>
-            </div>
           </div>
 
         </div>
