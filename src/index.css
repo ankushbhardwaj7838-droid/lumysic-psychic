@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-midnight: #0b0514;
+    --color-midnight-card: #150b24;
+    --color-midnight-border: #2c184d;
+    --color-gold: #d4af37;
+    --color-gold-light: #f5e7a9;
+    --color-ivory: #faf7f2;
+    --color-lavender: #bda5db;
+    --primary-purple: #7C5CFF;
+    --secondary-purple: #5B4AE8;
+    --accent-gold: #E7C878;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A8ADC2;
+    --border-color: #252A42;
+  }
+
+  body {
+    background-color: #0b0514;
+    color: #faf7f2;
+    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Cormorant Garamond', 'Inter', Georgia, serif;
+  }
+
+  .font-display {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(11, 5, 20, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
+/* Subtle starry background grid pattern */
+.bg-celestial-pattern {
+  background-color: #0b0514;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(120, 50, 190, 0.18) 0%, transparent 60%),
+    radial-gradient(circle at 100% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 0% 100%, rgba(85, 30, 150, 0.15) 0%, transparent 50%);
+}
+
+.gold-shimmer {
+  background: linear-gradient(135deg, #d4af37 0%, #fff1c5 50%, #aa8422 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cosmic-card {
+  background-color: #11162B;
+  border: 1px solid #252A42;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cosmic-card:hover {
+  border-color: rgba(124, 92, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(7, 10, 24, 0.7);
+}
+
+@keyframes twinkleDot {
+  0%, 100% {
+    opacity: var(--star-min-op, 0.15);
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: var(--star-max-op, 0.95);
+    transform: scale(1.3);
+  }
+}
+
+@keyframes marqueeLTR {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+@keyframes marqueeRTL {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marqueeLTR 36s linear infinite;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-rtl {
+  display: flex;
+  width: max-content;
+  animation: marqueeRTL 36s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-rtl:hover {
+  animation-play-state: paused;
+}
+
+/* Auto shuffle card gentle floating effect */
+@keyframes cardMicroFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-card-float {
+  animation: cardMicroFloat 4s ease-in-out infinite;
+}
+
+/* Zodiac Hero Wave & Orbital Flow Animations */
+@keyframes celestialOrbit {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes celestialOrbitReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes columnFloat1 {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes columnFloat2 {
+  0%, 100% { transform: translateY(-8px); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes columnFloat3 {
+  0%, 100% { transform: translateY(6px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-celestial-orbit {
+  animation: celestialOrbit 60s linear infinite;
+}
+
+.animate-celestial-orbit-reverse {
+  animation: celestialOrbitReverse 80s linear infinite;
+}
+
+.animate-column-wave-1 {
+  animation: columnFloat1 6s ease-in-out infinite;
+}
+
+.animate-column-wave-2 {
+  animation: columnFloat2 7s ease-in-out infinite;
+}
+
+.animate-column-wave-3 {
+  animation: columnFloat3 6.5s ease-in-out infinite;
+}

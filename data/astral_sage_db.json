@@ -1,0 +1,2824 @@
+{
+  "readers": [
+    {
+      "id": "psychic-tamara",
+      "name": "Psychic Tamara",
+      "title": "Clairvoyant & Love Advisor",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 16,
+      "experienceYears": 16,
+      "initials": "PT",
+      "rating": 4.98,
+      "sessionsCount": 989,
+      "reviewCount": 620,
+      "ratePerMinute": 1,
+      "location": "Manchester, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Love & Relationships",
+        "Psychic",
+        "Soulmate Connections"
+      ],
+      "specialities": [
+        "Love & Relationships",
+        "Psychic",
+        "Soulmate Connections"
+      ],
+      "bio": "With 16 years of spiritual experience, Tamara tunes into energetic frequencies to guide love bonds, twin flame reconnections, and soulmate destiny.",
+      "methods": [
+        "Clairvoyant Energy Reading",
+        "Soulmate Guidance",
+        "Love Horizon"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "When you listen to the subtle signs of the heart, your true love path reveals itself.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-gabrielle",
+      "name": "Psychic Gabrielle",
+      "title": "Intuitive Love & Soul Guide",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 12,
+      "experienceYears": 12,
+      "initials": "PG",
+      "rating": 4.99,
+      "sessionsCount": 1420,
+      "reviewCount": 480,
+      "ratePerMinute": 1,
+      "location": "London, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Love & Relationships",
+        "Psychic",
+        "Emotional Crossroads"
+      ],
+      "specialities": [
+        "Love & Relationships",
+        "Psychic",
+        "Emotional Crossroads"
+      ],
+      "bio": "Gabrielle brings 12 years of compassionate psychic perception to intimate relationships, breakup healing, and emotional crossroads.",
+      "methods": [
+        "Love Energy Scrying",
+        "Aura Impressions",
+        "Soul Connection"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "Clear perspective unlocks the peace and devotion your heart has been seeking.",
+      "isActive": false,
+      "status": "online"
+    },
+    {
+      "id": "psychic-colleen",
+      "name": "Psychic Colleen",
+      "title": "Master Love & Twin Flame Intuitive",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 15,
+      "experienceYears": 15,
+      "initials": "PC",
+      "rating": 4.98,
+      "sessionsCount": 1850,
+      "reviewCount": 710,
+      "ratePerMinute": 1,
+      "location": "London, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Love & Relationships",
+        "Psychic",
+        "Twin Flames"
+      ],
+      "specialities": [
+        "Love & Relationships",
+        "Psychic",
+        "Twin Flames"
+      ],
+      "bio": "Colleen is globally respected for decoding love intentions, marriage timelines, and soulmate contracts with heartfelt accuracy.",
+      "methods": [
+        "Twin Flame Channeling",
+        "Heart Chakra Aura Reading"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "Love is a vibrational match; I help you align with the energy that calls you.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-naomi",
+      "name": "Psychic Naomi",
+      "title": "Intuitive Empath & Love Healer",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 10,
+      "experienceYears": 10,
+      "initials": "PN",
+      "rating": 4.99,
+      "sessionsCount": 1240,
+      "reviewCount": 520,
+      "ratePerMinute": 1,
+      "location": "Edinburgh, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Love & Relationships",
+        "Psychic",
+        "Romantic Healing"
+      ],
+      "specialities": [
+        "Love & Relationships",
+        "Psychic",
+        "Romantic Healing"
+      ],
+      "bio": "Specializing in deep emotional healing, Naomi untangles complex relationships, long-distance loves, and reunion chances.",
+      "methods": [
+        "Empathic Love Scrying",
+        "Heart Alignment"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "When your heart finds clarity, your path forward becomes effortless.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "tarot-oliver",
+      "name": "Tarot Oliver",
+      "title": "Love Tarot Specialist",
+      "category": "Tarot",
+      "image_url": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 17,
+      "experienceYears": 17,
+      "initials": "TO",
+      "rating": 4.98,
+      "sessionsCount": 1390,
+      "reviewCount": 520,
+      "ratePerMinute": 1,
+      "location": "London, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Love & Relationships",
+        "Tarot",
+        "Soulmate Spreads"
+      ],
+      "specialities": [
+        "Love & Relationships",
+        "Tarot",
+        "Soulmate Spreads"
+      ],
+      "bio": "Oliver has read Tarot across Mayfair and Edinburgh for over 17 years, decoding relationship crossroads and hidden feelings with grounded precision.",
+      "methods": [
+        "Rider-Waite-Smith",
+        "Love Cross Spreads",
+        "Two Hearts Mirror"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "The cards reveal the unspoken feelings that already connect two souls.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "tarot-jasper",
+      "name": "Tarot Jasper",
+      "title": "Tarot Reader & Relationship Guide",
+      "category": "Tarot",
+      "image_url": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 6,
+      "experienceYears": 6,
+      "initials": "TJ",
+      "rating": 4.98,
+      "sessionsCount": 840,
+      "reviewCount": 260,
+      "ratePerMinute": 1,
+      "location": "Leeds, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Love & Relationships",
+        "Tarot"
+      ],
+      "specialities": [
+        "Love & Relationships",
+        "Tarot"
+      ],
+      "bio": "Jasper provides empathetic tarot consultations focusing on romance, partner intentions, and emotional alignment.",
+      "methods": [
+        "Marseille Spreads",
+        "Relationship Mirror"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "Listen closely to what the cards reflect about your partner and destiny.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "tarot-beatrice",
+      "name": "Tarot Beatrice",
+      "title": "Tarot Reader & Love Empath",
+      "category": "Tarot",
+      "image_url": "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 5,
+      "experienceYears": 5,
+      "initials": "TB",
+      "rating": 4.99,
+      "sessionsCount": 915,
+      "reviewCount": 295,
+      "ratePerMinute": 1,
+      "location": "Bristol, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Love & Relationships",
+        "Tarot"
+      ],
+      "specialities": [
+        "Love & Relationships",
+        "Tarot"
+      ],
+      "bio": "Beatrice offers a compassionate space to untangle relationship recurring patterns and personal crossroads with classic tarot decks.",
+      "methods": [
+        "Symbolic Tarot Analysis",
+        "Celtic Cross"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "What we seek in the cards is often already whispering within our hearts.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-vera",
+      "name": "Psychic Vera",
+      "title": "Master Clairvoyant & Truth Channel",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 18,
+      "experienceYears": 18,
+      "initials": "PV",
+      "rating": 4.99,
+      "sessionsCount": 2140,
+      "reviewCount": 840,
+      "ratePerMinute": 1,
+      "location": "Bath, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Psychic",
+        "Love & Relationships",
+        "High Accuracy"
+      ],
+      "specialities": [
+        "Psychic",
+        "Love & Relationships",
+        "High Accuracy"
+      ],
+      "bio": "Renowned for pinpoint dates and direct truths, Vera strips away confusion to reveal immediate timeline clarity in romance and destiny.",
+      "methods": [
+        "Clairvoyant Timeframes",
+        "Aura Sensing"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "The truth brings immediate peace, no matter how complex the journey.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-emerson",
+      "name": "Psychic Emerson",
+      "title": "Intuitive Remote Viewer & Empath",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 14,
+      "experienceYears": 14,
+      "initials": "PE",
+      "rating": 4.98,
+      "sessionsCount": 1650,
+      "reviewCount": 450,
+      "ratePerMinute": 1,
+      "location": "Oxford, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Psychic",
+        "Accuracy",
+        "Life Direction"
+      ],
+      "specialities": [
+        "Psychic",
+        "Accuracy",
+        "Life Direction"
+      ],
+      "bio": "Emerson connects with high-level intuitive frequencies, decoding pivotal crossroads with calm, timeline-oriented precision.",
+      "methods": [
+        "Intuitive Reading",
+        "Life Path Scrying"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "True guidance is as practical as a compass on open seas.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-marcus",
+      "name": "Psychic Marcus",
+      "title": "Psychic & Strategic Life Advisor",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 14,
+      "experienceYears": 14,
+      "initials": "PM",
+      "rating": 4.98,
+      "sessionsCount": 1340,
+      "reviewCount": 342,
+      "ratePerMinute": 1,
+      "location": "Oxford, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Psychic",
+        "Career",
+        "Future Forecast"
+      ],
+      "specialities": [
+        "Psychic",
+        "Career",
+        "Future Forecast"
+      ],
+      "bio": "Marcus consults seekers facing pivotal career and life decisions, delivering actionable, timeline-oriented strategic clarity.",
+      "methods": [
+        "Intuitive Reading",
+        "Life Path Clarifiers"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "Your choices today write the destiny of tomorrow.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "tarot-devendra",
+      "name": "Tarot Devendra",
+      "title": "Grand Master Tarot Reader",
+      "category": "Tarot",
+      "image_url": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 20,
+      "experienceYears": 20,
+      "initials": "TD",
+      "rating": 4.99,
+      "sessionsCount": 1980,
+      "reviewCount": 615,
+      "ratePerMinute": 1,
+      "location": "London, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Tarot",
+        "Long-term Partnerships"
+      ],
+      "specialities": [
+        "Tarot",
+        "Long-term Partnerships"
+      ],
+      "bio": "Devendra combines two decades of study to unlock deep answers about destiny, long-term partnerships, and career pivots.",
+      "methods": [
+        "Classical Decks",
+        "Grand Cross"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "The universe always leaves breadcrumbs before life-altering turning points.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-sophia",
+      "name": "Psychic Sophia",
+      "title": "Intuitive Empath & Clarity Guide",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 5,
+      "experienceYears": 5,
+      "initials": "PS",
+      "rating": 4.98,
+      "sessionsCount": 1120,
+      "reviewCount": 384,
+      "ratePerMinute": 1,
+      "location": "Edinburgh, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Psychic",
+        "Love & Relationships"
+      ],
+      "specialities": [
+        "Psychic",
+        "Love & Relationships"
+      ],
+      "bio": "Rooted in intuitive empathy, Sophia brings compassionate clairvoyance to personal dilemmas, love clarity, and life decisions.",
+      "methods": [
+        "Clairvoyant Energy Reading",
+        "Aura Impressions"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "Intuitive insight acts as a warm lantern through the mist.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-callum",
+      "name": "Psychic Callum",
+      "title": "Psychic & Energy Reader",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 7,
+      "experienceYears": 7,
+      "initials": "PC",
+      "rating": 4.99,
+      "sessionsCount": 875,
+      "reviewCount": 310,
+      "ratePerMinute": 1,
+      "location": "Glasgow, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Psychic",
+        "Career Direction"
+      ],
+      "specialities": [
+        "Psychic",
+        "Career Direction"
+      ],
+      "bio": "Callum delivers grounded psychic insights for career direction, life pivots, and relationship clarity.",
+      "methods": [
+        "Intuitive Rune Scrying",
+        "Highland Empathy"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "The future is forged by the choices made today.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "tarot-eleanor",
+      "name": "Tarot Eleanor",
+      "title": "Master Esoteric Tarot Reader",
+      "category": "Tarot",
+      "image_url": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 19,
+      "experienceYears": 19,
+      "initials": "TE",
+      "rating": 4.98,
+      "sessionsCount": 1760,
+      "reviewCount": 480,
+      "ratePerMinute": 1,
+      "location": "Bath, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Tarot",
+        "Family Dynamics"
+      ],
+      "specialities": [
+        "Tarot",
+        "Family Dynamics"
+      ],
+      "bio": "Trained under classic British esoteric traditions, Eleanor decodes complex family dynamics and life timing with warmth.",
+      "methods": [
+        "Hermetic Tarot",
+        "Decan Spreads"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "quote": "Clarity is knowing when to raise your sails to the cosmic winds.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-cecilia",
+      "name": "Psychic Cecilia",
+      "title": "Intuitive Empath & Life Guide",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 15,
+      "experienceYears": 15,
+      "initials": "PC",
+      "rating": 4.99,
+      "sessionsCount": 1510,
+      "reviewCount": 510,
+      "ratePerMinute": 1,
+      "location": "Bristol, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Psychic",
+        "Heart-Centered Guidance"
+      ],
+      "specialities": [
+        "Psychic",
+        "Heart-Centered Guidance"
+      ],
+      "bio": "Cecilia offers warm, empathic consultations that strip away confusion and bring immediate heart-centered direction.",
+      "methods": [
+        "Empathic Scrying",
+        "Intuitive Channeling"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "Trust the quiet inner compass that knows where you truly belong.",
+      "isActive": true,
+      "status": "online"
+    },
+    {
+      "id": "psychic-ananya",
+      "name": "Psychic Ananya",
+      "title": "Clairvoyant & Intuitive Guide",
+      "category": "Psychic & Intuitive",
+      "image_url": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80",
+      "avatar": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=600&q=80",
+      "experience_years": 11,
+      "experienceYears": 11,
+      "initials": "PA",
+      "rating": 4.98,
+      "sessionsCount": 1290,
+      "reviewCount": 445,
+      "ratePerMinute": 1,
+      "location": "Manchester, UK",
+      "isOnline": true,
+      "isChatEnabled": true,
+      "isCallEnabled": true,
+      "specialties": [
+        "Psychic",
+        "Emotional Healing"
+      ],
+      "specialities": [
+        "Psychic",
+        "Emotional Healing"
+      ],
+      "bio": "Ananya brings gentle clairvoyance to love, emotional healing, and finding positive life direction.",
+      "methods": [
+        "Aura Reading",
+        "Intuitive Insights"
+      ],
+      "languages": [
+        "English"
+      ],
+      "quote": "Your heart already knows the truth; intuition just reminds you.",
+      "isActive": true,
+      "status": "online"
+    }
+  ],
+  "spells": [
+    {
+      "id": "bring-back-love",
+      "name": "Bring Back My Love Spell",
+      "category": "love",
+      "originalPrice": 85,
+      "discountPrice": 45,
+      "imageUrl": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80",
+      "description": "Designed to soften stubborn hearts, dissolve past misunderstandings, and reignite the magnetic intimacy that once bound you together. Performed under Venus planetary hours.",
+      "castDuration": "24-48 Hours",
+      "includes": [
+        "Consecrated rose-wax altar candle casting",
+        "Personalized telepathic reconciliation invocation & prayer",
+        "Photographic proof of your personal altar ceremony",
+        "Written energy diagnosis & spiritual advice report"
+      ],
+      "practitionerName": "Lady Genevieve Moore",
+      "practitionerRole": "High Priestess & Solitary Witch (22 yrs exp)",
+      "rating": 4.96,
+      "reviewsCount": 342,
+      "badge": "Most Popular",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "love-binding",
+      "name": "Love Binding Spell & Fidelity Prayer",
+      "category": "love",
+      "originalPrice": 95,
+      "discountPrice": 50,
+      "imageUrl": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80",
+      "description": "An ancient binding ritual and consecrated fidelity prayer that anchors deep loyalty, emotional devotion, and long-term romantic fidelity. Protects your union against third-party interference.",
+      "castDuration": "24 Hours",
+      "includes": [
+        "Twin crimson cord knot-tying ceremony",
+        "Venusian honey jar sweetening preparation",
+        "Audio recording of personalized chant & planetary bell ringing",
+        "Consecrated digital sigil talisman for your phone lockscreen"
+      ],
+      "practitionerName": "Acharya Devendra Shastri",
+      "practitionerRole": "Classical Vedic Ritualist & Astrologer (28 yrs exp)",
+      "rating": 4.98,
+      "reviewsCount": 418,
+      "badge": "Bestseller",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "evil-eye-removal",
+      "name": "Evil Eye Banishing & Protection Prayer",
+      "category": "protection",
+      "originalPrice": 75,
+      "discountPrice": 38,
+      "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+      "description": "Sever malevolent jealousy, curses, psychic vampires, and persistent bad luck. Installs a mirror shield around your auric body to bounce back negative intentions.",
+      "castDuration": "12-24 Hours",
+      "includes": [
+        "Black tourmaline & sea salt banishing circle",
+        "Sage & dragons-blood smoke aura cleansing",
+        "3-point energetic Cord Cutting ritual & protection prayer",
+        "Mirror shield seal verification report"
+      ],
+      "practitionerName": "Eleanor Vance",
+      "practitionerRole": "Celtic Traditional Seer & Healer (19 yrs exp)",
+      "rating": 4.94,
+      "reviewsCount": 289,
+      "badge": "High Demand",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "attract-your-love",
+      "name": "Attract Destined Soulmate Spell",
+      "category": "love",
+      "originalPrice": 80,
+      "discountPrice": 42,
+      "imageUrl": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80",
+      "description": "Radiate an irresistible romantic aura that draws your destined soulmate into your physical orbit. Dissolves heart-wall armoring and awakens receptive feminine/masculine magnetism.",
+      "castDuration": "24 Hours",
+      "includes": [
+        "Rose quartz & jasmine flower blossom charging",
+        "Anahata (Heart Chakra) magnetic alignment prayer",
+        "Planetary talisman consecration on copper tablet",
+        "Detailed spiritual soulmate description prophecy"
+      ],
+      "practitionerName": "Dr. Alistair Sterling",
+      "practitionerRole": "Hermetic Astrologer & Ceremonialist (24 yrs exp)",
+      "rating": 4.97,
+      "reviewsCount": 310,
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "sacred-altar-prayer",
+      "name": "Consecrated Altar Prayer & Cosmic Blessing",
+      "category": "protection",
+      "originalPrice": 65,
+      "discountPrice": 32,
+      "imageUrl": "/uploads/sunlit_celestial_meditation_altar_png-1791103721431.png",
+      "description": "A 7-day consecrated candle prayer lit in the name of you or your loved ones before the sanctuary sanctum. Brings profound peace, spiritual light, and resolves acute anxiety.",
+      "castDuration": "7 Days Continuous",
+      "includes": [
+        "Daily altar beeswax candle vigil lighting",
+        "Name inscribed into the Sanctuary Book of Intentions",
+        "Daily personal blessing & spiritual shield chant",
+        "Closing ceremony video & flame divination reading"
+      ],
+      "practitionerName": "Soror Vivien",
+      "practitionerRole": "Sanctuary Keeper & Mystic Priestess",
+      "rating": 5,
+      "reviewsCount": 178,
+      "badge": "Continuous Prayer",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "twin-flame-harmonization",
+      "name": "Twin Flame Harmonization & Reunion Spell",
+      "category": "love",
+      "originalPrice": 110,
+      "discountPrice": 58,
+      "imageUrl": "/uploads/twin_flame_reunion_altar_png-1791103684204.png",
+      "description": "Calm the agonizing runner/chaser cycle and harmonize dual-soul resonance. Clears shared karmic debris so reunion occurs in mutual peace and maturity.",
+      "castDuration": "48 Hours",
+      "includes": [
+        "Twin flame etheric cord purification",
+        "Mercury-Venus harmonic frequency attunement prayer",
+        "Akashic record clearing for romantic karma",
+        "Reunion timeline reading & custom guidance"
+      ],
+      "practitionerName": "Lady Genevieve Moore",
+      "practitionerRole": "High Priestess & Solitary Witch",
+      "rating": 4.95,
+      "reviewsCount": 195,
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "reiki-chakra-healing",
+      "name": "Reiki Energy Healing & Aura Flush",
+      "category": "reiki",
+      "originalPrice": 70,
+      "discountPrice": 35,
+      "imageUrl": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+      "description": "A remote 7-chakra reiki transmission to flush stagnant grief, anxiety, fatigue, and emotional heaviness. Leaves you feeling deeply grounded, light, and renewed.",
+      "castDuration": "Same Day",
+      "includes": [
+        "Usui Reiki Master distance attunement (60 min session)",
+        "7 Chakra vitality diagnosis sheet",
+        "Crystalline sound bowl frequency bath audio",
+        "Post-healing energetic maintenance instructions"
+      ],
+      "practitionerName": "Master Kavi Anand",
+      "practitionerRole": "Grandmaster Reiki & Pranic Healer (21 yrs exp)",
+      "rating": 4.99,
+      "reviewsCount": 520,
+      "badge": "Master Healer",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "financial-prosperity",
+      "name": "Financial Prosperity & Abundance Spell",
+      "category": "prosperity",
+      "originalPrice": 90,
+      "discountPrice": 48,
+      "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
+      "description": "Unlock Jupiter and Mercury abundance currents to attract promotions, unexpected windfalls, business contracts, and career expansion.",
+      "castDuration": "24-48 Hours",
+      "includes": [
+        "Pyrite & green aventurine wealth grid activation",
+        "Jupiter planetary talisman consecration & prayer chant",
+        "Consecrated cinnamon & bay leaf burning ceremony",
+        "Career prosperity astrological transit report"
+      ],
+      "practitionerName": "Acharya Devendra Shastri",
+      "practitionerRole": "Classical Vedic Ritualist & Astrologer",
+      "rating": 4.93,
+      "reviewsCount": 264,
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "loyalty-commitment-spell",
+      "name": "Passionate Commitment & Fidelity Spell",
+      "category": "love",
+      "originalPrice": 85,
+      "discountPrice": 44,
+      "imageUrl": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
+      "description": "Inspires your partner to step forward into marriage, cohabitation, or exclusivity without anxiety. Turns superficial dating into a cherished lifelong partnership.",
+      "castDuration": "24 Hours",
+      "includes": [
+        "Venusian apple & clove devotion charm",
+        "Mutual commitment candle altar casting & sacred prayer",
+        "Private photographic verification proof",
+        "Relationship astrological compatibility diagnosis"
+      ],
+      "practitionerName": "Eleanor Vance",
+      "practitionerRole": "Celtic Traditional Seer & Healer",
+      "rating": 4.96,
+      "reviewsCount": 312,
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "wealth-road-opener",
+      "name": "Wealth & Abundance Road Opener Spell",
+      "category": "prosperity",
+      "type": "spell",
+      "originalPrice": 90,
+      "discountPrice": 48,
+      "imageUrl": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
+      "description": "Unlock Jupiter and Mercury abundance currents to dissolve financial blockages, attract unexpected cash windfalls, career promotions, and high-value opportunities.",
+      "castDuration": "24-48 Hours",
+      "includes": [
+        "Pyrite & green aventurine wealth grid activation",
+        "Jupiter planetary talisman consecration & prayer chant",
+        "Consecrated cinnamon & bay leaf burning ceremony",
+        "Career prosperity cosmic transit report"
+      ],
+      "practitionerName": "Dr. Alistair Sterling",
+      "practitionerRole": "Hermetic Mystic & Ceremonialist (24 yrs exp)",
+      "rating": 4.95,
+      "reviewsCount": 264,
+      "badge": "High Wealth",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "evil-eye-banishing",
+      "name": "Evil Eye Banishing & Cord Cutting Spell",
+      "category": "protection",
+      "type": "spell",
+      "originalPrice": 75,
+      "discountPrice": 38,
+      "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+      "description": "Sever malevolent jealousy, curses, psychic vampires, toxic ex-attachments, and persistent misfortune. Installs a mirror shield around your auric body to bounce back negative energy.",
+      "castDuration": "12-24 Hours",
+      "includes": [
+        "Black tourmaline & sea salt banishing circle",
+        "Sage & dragons-blood smoke aura cleansing",
+        "3-point energetic cord cutting ritual & protection prayer",
+        "Mirror shield seal verification report"
+      ],
+      "practitionerName": "Eleanor Vance",
+      "practitionerRole": "Celtic Traditional Seer & Healer (19 yrs exp)",
+      "rating": 4.94,
+      "reviewsCount": 289,
+      "badge": "High Demand",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "attract-soulmate",
+      "name": "Attract Destined Soulmate & Magnetism Spell",
+      "category": "love",
+      "type": "spell",
+      "originalPrice": 80,
+      "discountPrice": 42,
+      "imageUrl": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80",
+      "description": "Radiate an irresistible romantic aura that draws your destined divine partner into your physical life. Dissolves subconcious intimacy fears and awakens receptive feminine/masculine magnetism.",
+      "castDuration": "24 Hours",
+      "includes": [
+        "Rose quartz & jasmine flower blossom charging",
+        "Anahata (Heart Chakra) magnetic alignment prayer",
+        "Planetary talisman consecration on copper tablet",
+        "Detailed spiritual soulmate description prophecy"
+      ],
+      "practitionerName": "Lady Genevieve Moore",
+      "practitionerRole": "High Priestess & Solitary Witch",
+      "rating": 4.97,
+      "reviewsCount": 310,
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "sweetening-honey-jar",
+      "name": "Honey Jar Sweetening & Obsession Prayer",
+      "category": "love",
+      "type": "spell",
+      "originalPrice": 70,
+      "discountPrice": 39,
+      "imageUrl": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80",
+      "description": "Infuse constant sweet, affectionate, and loving thoughts in someone who has grown cold or distant. Clears bitter words from recent arguments and fills them with romantic longing.",
+      "castDuration": "24 Hours",
+      "includes": [
+        "Wildflower honey jar altar preparation with brown sugar & spices",
+        "Name paper petitioned and consecrated under red candle flame",
+        "Weekly sweetening agitation ritual for 30 days",
+        "Proof photo of finished altar jar"
+      ],
+      "practitionerName": "Soror Vivien",
+      "practitionerRole": "Sanctuary Keeper & Mystic Priestess",
+      "rating": 4.98,
+      "reviewsCount": 245,
+      "badge": "Sweetening",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "7-chakra-vitality-cleansing",
+      "name": "Distance 7-Chakra Vitality Alignment & Deep Cleansing",
+      "category": "healing",
+      "type": "healing",
+      "originalPrice": 70,
+      "discountPrice": 35,
+      "imageUrl": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
+      "description": "A comprehensive remote 7-chakra Pranic & Reiki transmission to unblock congested energy channels, flush out chronic exhaustion, and balance Root-to-Crown vitality.",
+      "castDuration": "60 Min Live Distance",
+      "includes": [
+        "Grandmaster Reiki distance attunement session",
+        "Full 7 Chakra vitality score & blockage map diagnosis",
+        "Crystalline sound bowl frequency bath audio (432Hz)",
+        "Post-healing energetic grounding & protection protocol"
+      ],
+      "practitionerName": "Master Kavi Anand",
+      "practitionerRole": "Grandmaster Reiki & Pranic Healer (21 yrs exp)",
+      "rating": 4.99,
+      "reviewsCount": 520,
+      "badge": "Master Healer",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "emotional-heart-wall-healing",
+      "name": "Emotional Heart-Wall & Breakup Trauma Release Healing",
+      "category": "healing",
+      "type": "healing",
+      "originalPrice": 80,
+      "discountPrice": 40,
+      "imageUrl": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=800&q=80",
+      "description": "Dissolve subconscious walls built around the spiritual heart center from toxic past relationships, betrayal, grief, and unexpressed sorrow. Restores emotional peace and trust.",
+      "castDuration": "Same Day Healing",
+      "includes": [
+        "Subconscious emotion code clearing of trapped energetic grief",
+        "Green jade & pink tourmaline remote crystalline grid work",
+        "Personalized audio recording of guided cord-severing meditation",
+        "Detailed emotional release report"
+      ],
+      "practitionerName": "Eleanor Vance",
+      "practitionerRole": "Celtic Traditional Seer & Healer",
+      "rating": 4.97,
+      "reviewsCount": 388,
+      "badge": "Breakthrough",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "aura-purification-sound-bath",
+      "name": "Aura Purification & High-Frequency Light Bath",
+      "category": "healing",
+      "type": "healing",
+      "originalPrice": 65,
+      "discountPrice": 32,
+      "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=800&q=80",
+      "description": "Cleanses dark heaviness, psychic smog, and low vibrational debris from your etheric aura. Coats your energy field in radiant golden-violet light to attract synchronicities.",
+      "castDuration": "12-24 Hours",
+      "includes": [
+        "Distance auric sweep using consecrated selenite & white sage smoke",
+        "Custom 528Hz DNA repair & solfeggio frequency transmission",
+        "Auric light-body sealing prayer",
+        "Aura color & vibration reading report"
+      ],
+      "practitionerName": "Soror Vivien",
+      "practitionerRole": "Sanctuary Keeper & Mystic Priestess",
+      "rating": 4.95,
+      "reviewsCount": 276,
+      "badge": "Pure Light",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "ancestral-karmic-clearing",
+      "name": "Ancestral Karma & Past-Life Cord Clearing",
+      "category": "healing",
+      "type": "healing",
+      "originalPrice": 95,
+      "discountPrice": 48,
+      "imageUrl": "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=800&q=80",
+      "description": "Release deep-seated generational vows of poverty, guilt, self-sabotage, and ancestral family burdens stored within your spiritual lineage and Akashic records.",
+      "castDuration": "24-48 Hours",
+      "includes": [
+        "Akashic record reading & generational contract dissolution",
+        "Ancestral blessing altar ceremony with sacred sandalwood incense",
+        "Comprehensive report detailing cleared karmic debts",
+        "Ancestral healing sigil talisman"
+      ],
+      "practitionerName": "Acharya Devendra Shastri",
+      "practitionerRole": "Classical Vedic Ritualist & Spiritual Guide",
+      "rating": 4.98,
+      "reviewsCount": 312,
+      "badge": "Deep Clearing",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "rapid-anxiety-calming-flush",
+      "name": "Rapid Nervous System Calm & Pranic Energy Recharge",
+      "category": "healing",
+      "type": "healing",
+      "originalPrice": 60,
+      "discountPrice": 28,
+      "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80",
+      "description": "Instant remote biofield reset for acute anxiety, panic, overwhelm, or insomnia. Infuses calm, grounded prana into your solar plexus and vagus nerve energetic pathways.",
+      "castDuration": "Instant / Same Day",
+      "includes": [
+        "Biofield reset and solar plexus calming transmission",
+        "Consecrated lavender & blue chamomile etheric mist blessing",
+        "Grounding breathwork instructions and personalized mantra",
+        "Spiritual sleep & peace verification"
+      ],
+      "practitionerName": "Master Kavi Anand",
+      "practitionerRole": "Grandmaster Reiki & Pranic Healer",
+      "rating": 4.97,
+      "reviewsCount": 410,
+      "isActive": true,
+      "status": "active"
+    }
+  ],
+  "shopProducts": [
+    {
+      "id": "prod-money-magnet",
+      "name": "Money Magnet (Raw Pyrite & Citrine Abundance Talisman)",
+      "category": "magnets",
+      "type": "shop",
+      "priceGBP": 35,
+      "originalPriceGBP": 70,
+      "rating": 4.98,
+      "reviewCount": 284,
+      "consecratedBy": "Acharya Devendra Shastri (Vedic Ritualist)",
+      "description": "Authentic raw Peruvian Pyrite combined with golden Brazilian Citrine. Consecrated under Jupiter planetary transit on a gold altar plate to continuously magnetize wealth, unexpected windfalls, business clients, and debt clearance.",
+      "inStock": true,
+      "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80",
+      "badge": "Bestseller",
+      "materials": "Grade-AAA Peruvian Pyrite & Natural Citrine with Consecrated Silk Pouch",
+      "isActive": true,
+      "status": "active",
+      "priceINR": 849,
+      "originalPriceINR": 1699,
+      "purpose": "Wealth"
+    },
+    {
+      "id": "prod-love-magnet",
+      "name": "Love Magnet (Natural Rose Quartz & Rhodochrosite Amulet)",
+      "category": "magnets",
+      "type": "shop",
+      "priceGBP": 29,
+      "originalPriceGBP": 58,
+      "rating": 4.97,
+      "reviewCount": 319,
+      "consecratedBy": "Lady Genevieve Moore (High Priestess)",
+      "description": "High-vibrational Madagascar Rose Quartz heart amulet paired with rare Argentine Rhodochrosite. Blessed under the Venusian hour with consecrated rose oil to draw your true soulmate and dissolve emotional walls.",
+      "inStock": true,
+      "image": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80",
+      "badge": "Top Rated",
+      "materials": "Madagascar Rose Quartz, Rhodochrosite, 18k Rose Gold Plated Bale",
+      "isActive": true,
+      "status": "active",
+      "priceINR": 799,
+      "originalPriceINR": 1500,
+      "purpose": "Love"
+    },
+    {
+      "id": "prod-couple-rings",
+      "name": "Couple Rings (Astral Connection - Obsidian & Moonstone Sacred Bands)",
+      "category": "rings",
+      "type": "shop",
+      "priceGBP": 48,
+      "originalPriceGBP": 95,
+      "rating": 5,
+      "reviewCount": 192,
+      "consecratedBy": "Soror Vivien & Master Kavi Anand",
+      "description": "Twin sacred bands forged with Black Obsidian (protective grounding) and Sri Lankan Rainbow Moonstone (intuitive harmony). Energetically bound through dual consecration to preserve eternal telepathy, trust, and fidelity between partners across any physical distance.",
+      "inStock": true,
+      "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80",
+      "badge": "Exclusive",
+      "materials": "Solid 925 Sterling Silver, Natural Black Obsidian & Blue Flash Moonstone",
+      "isActive": true,
+      "status": "active",
+      "priceINR": 1299,
+      "originalPriceINR": 2500,
+      "purpose": "Love"
+    },
+    {
+      "id": "prod-evil-eye-bracelet",
+      "name": "Evil Eye & Black Tourmaline Protective Bracelet",
+      "category": "jewelry",
+      "type": "shop",
+      "priceGBP": 24,
+      "originalPriceGBP": 48,
+      "rating": 4.95,
+      "reviewCount": 420,
+      "consecratedBy": "Eleanor Vance (Celtic Traditional Seer)",
+      "description": "Authentic handmade Anatolian glass Nazar eye combined with raw Brazilian Black Tourmaline beads. Creates a continuous psychic mirror shield deflecting jealousy, evil eye curses, and toxic aura drainers.",
+      "inStock": true,
+      "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+      "badge": "High Demand",
+      "materials": "Handmade Turkish Nazar Glass, 8mm Grade-A Black Tourmaline",
+      "isActive": true,
+      "status": "active",
+      "priceINR": 599,
+      "originalPriceINR": 1200,
+      "purpose": "Protection"
+    },
+    {
+      "id": "prod-wealth-herb-oil",
+      "name": "Consecrated Wealth Herb & Fast Luck Altar Oil",
+      "category": "altar",
+      "type": "shop",
+      "priceGBP": 22,
+      "originalPriceGBP": 44,
+      "rating": 4.93,
+      "reviewCount": 165,
+      "consecratedBy": "Dr. Alistair Sterling (Hermetic Mystic)",
+      "description": "Ancient ceremonial botanical oil prepared with cinnamon bark, bay leaf, High John the Conqueror root, and 24K edible gold flakes in organic cold-pressed jojoba. Used for anointing wallets, credit cards, bank books, and altar candles.",
+      "inStock": true,
+      "image": "https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=800&q=80",
+      "badge": "Consecrated",
+      "materials": "30ml Dropper Bottle, Certified Organic Botanicals & 24K Gold Leaf",
+      "isActive": true,
+      "status": "active",
+      "priceINR": 499,
+      "originalPriceINR": 999,
+      "purpose": "Wealth"
+    },
+    {
+      "id": "prod-sage-cleansing-bundle",
+      "name": "Sacred Altar Cleansing Kit (White Sage, Palo Santo & Selenite)",
+      "category": "altar",
+      "type": "shop",
+      "priceGBP": 27,
+      "originalPriceGBP": 54,
+      "rating": 4.96,
+      "reviewCount": 238,
+      "consecratedBy": "Sanctuary Altar Elders",
+      "description": "Complete home auric cleansing set featuring ethically harvested California White Sage, authentic Peruvian Palo Santo holy wood, a natural Abalone burning shell, and a raw Moroccan Selenite clearing wand.",
+      "inStock": true,
+      "image": "https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=800&q=80",
+      "badge": "Sanctuary Kit",
+      "materials": "California White Sage, Peruvian Palo Santo, Abalone Shell & Selenite",
+      "isActive": true,
+      "status": "active",
+      "priceINR": 650,
+      "originalPriceINR": 1300,
+      "purpose": "Protection"
+    },
+    {
+      "id": "prod-metal-dhan-yog",
+      "name": "Metal Dhan Yog Bracelet for Women",
+      "category": "jewelry",
+      "type": "shop",
+      "priceGBP": 28,
+      "originalPriceGBP": 45,
+      "priceINR": 899,
+      "originalPriceINR": 1400,
+      "purpose": "Wealth",
+      "rating": 4.98,
+      "reviewCount": 1658,
+      "consecratedBy": "Pt. Ramesh Shastri (Vedic Numerology & Jyotish)",
+      "description": "Delicate gold-toned metal chain featuring consecrated navratna & citrine crystals to activate Kubera Dhan Yog for feminine financial abundance, business clients, and career elevation.",
+      "inStock": true,
+      "image": "https://images.unsplash.com/photo-1611591475870-87779d724976?auto=format&fit=crop&w=800&q=80",
+      "badge": "100% CASHBACK on prepaid orders",
+      "materials": "Gold Plated Copper Chain, Natural Citrine & Navratna Beads",
+      "isActive": true,
+      "status": "active"
+    },
+    {
+      "id": "prod-dhan-yog-unisex",
+      "name": "Dhan Yog Bracelet for Men & Women (Money Magnet)",
+      "category": "magnets",
+      "type": "shop",
+      "priceGBP": 24,
+      "originalPriceGBP": 60,
+      "priceINR": 699,
+      "originalPriceINR": 1999,
+      "purpose": "Wealth",
+      "rating": 4.97,
+      "reviewCount": 1624,
+      "consecratedBy": "Acharya Devendra Shastri",
+      "description": "Natural Green Aventurine and metallic Peruvian Pyrite round beads strung on high-tensile stretch cord. Energized on a gold altar plate under Jupiter transit for non-stop cash inflow and debt release.",
+      "inStock": true,
+      "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+      "badge": "100% CASHBACK on prepaid orders",
+      "materials": "8mm Grade-AAA Natural Pyrite & Green Aventurine",
+      "isActive": true,
+      "status": "active"
+    }
+  ],
+  "customers": {
+    "test_seeker_1": {
+      "id": "test_seeker_1",
+      "name": "Charlotte Davies",
+      "birthDetails": {
+        "name": "Charlotte Davies",
+        "dob": "1992-06-14",
+        "birthTime": "08:45",
+        "amPm": "AM",
+        "placeOfBirth": "London, UK"
+      },
+      "isFirstTimeUser": false,
+      "freeMinutesUsed": true,
+      "totalConsultations": 1
+    },
+    "test_tarot_user": {
+      "id": "test_tarot_user",
+      "name": "Emma",
+      "isFirstTimeUser": true,
+      "freeMinutesUsed": false,
+      "totalConsultations": 0
+    },
+    "test_vedic_user": {
+      "id": "test_vedic_user",
+      "name": "Arun",
+      "birthDetails": {
+        "name": "Arun",
+        "dob": "1988-06-15",
+        "birthTime": "08:30",
+        "amPm": "AM",
+        "placeOfBirth": "London, UK"
+      },
+      "isFirstTimeUser": true,
+      "freeMinutesUsed": false,
+      "totalConsultations": 0
+    },
+    "cust_1791216993977": {
+      "id": "cust_1791216993977",
+      "name": "Ankush",
+      "birthDetails": {
+        "name": "Ankush",
+        "gender": "Male",
+        "dob": "1998-07-15",
+        "birthTime": "10:30",
+        "amPm": "AM",
+        "placeOfBirth": "Manchester, UK",
+        "unknownTime": false
+      },
+      "isFirstTimeUser": false,
+      "freeMinutesUsed": true,
+      "totalConsultations": 0
+    },
+    "client_1791309946372": {
+      "id": "client_1791309946372",
+      "name": "James",
+      "birthDetails": {
+        "name": "James Harrington",
+        "gender": "Male",
+        "dob": "22 Mar 1991",
+        "birthTime": "03:15 PM",
+        "placeOfBirth": "Manchester, England, UK",
+        "unknownTime": false
+      },
+      "isFirstTimeUser": true,
+      "freeMinutesUsed": false,
+      "totalConsultations": 0
+    },
+    "client_1791475114131": {
+      "id": "client_1791475114131",
+      "name": "Maya",
+      "birthDetails": {
+        "name": "Maya Patel",
+        "gender": "Female",
+        "dob": "05 Jul 1997",
+        "birthTime": "10:00 AM",
+        "placeOfBirth": "Birmingham, West Midlands, UK",
+        "unknownTime": false
+      },
+      "isFirstTimeUser": true,
+      "freeMinutesUsed": false,
+      "totalConsultations": 0
+    },
+    "client_1791475125464": {
+      "id": "client_1791475125464",
+      "name": "Maya",
+      "birthDetails": {
+        "name": "Maya Patel",
+        "gender": "Female",
+        "dob": "05 Jul 1997",
+        "birthTime": "10:00 AM",
+        "placeOfBirth": "Birmingham, West Midlands, UK",
+        "unknownTime": false
+      },
+      "isFirstTimeUser": false,
+      "freeMinutesUsed": true,
+      "totalConsultations": 1
+    },
+    "client_1791475158043": {
+      "id": "client_1791475158043",
+      "name": "Elena",
+      "birthDetails": {
+        "name": "Elena Rostova",
+        "gender": "Female",
+        "dob": "14 Nov 1994",
+        "birthTime": "08:45 AM",
+        "placeOfBirth": "London, Greater London, UK",
+        "unknownTime": false
+      },
+      "isFirstTimeUser": false,
+      "freeMinutesUsed": true,
+      "totalConsultations": 0
+    },
+    "cust_1791478456209": {
+      "id": "cust_1791478456209",
+      "name": "Neha Gupta",
+      "isFirstTimeUser": true,
+      "freeMinutesUsed": false,
+      "totalConsultations": 0
+    },
+    "cust_ankush_1791479843181": {
+      "id": "cust_ankush_1791479843181",
+      "name": "Ankush",
+      "isFirstTimeUser": true,
+      "freeMinutesUsed": false,
+      "totalConsultations": 0
+    }
+  },
+  "sessions": {
+    "sess_1791094239970_e4o1": {
+      "id": "sess_1791094239970_e4o1",
+      "customerId": "test_seeker_1",
+      "customerName": "Charlotte Davies",
+      "birthDetails": {
+        "name": "Charlotte Davies",
+        "dob": "1992-06-14",
+        "birthTime": "08:45",
+        "amPm": "AM",
+        "placeOfBirth": "London, UK"
+      },
+      "requestedReaderId": "oliver-hart",
+      "requestedReaderName": "Oliver Hart",
+      "assignedReaderId": "pandit-rajeshwar-sharma",
+      "assignedReaderName": "Pandit Rajeshwar Sharma",
+      "status": "active",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 0,
+      "totalDurationSeconds": 53903,
+      "paidSeconds": 53603,
+      "ratePerMinute": 3.5,
+      "createdAt": "2026-10-04T06:10:39.970Z",
+      "messages": [
+        {
+          "id": "sys_connect_1791094239970",
+          "sessionId": "sess_1791094239970_e4o1",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Connecting you with your reader... Your reading will begin as soon as your specialist connects.",
+          "timestamp": "2026-10-04T06:10:39.970Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "sys_join_1791094245910",
+          "sessionId": "sess_1791094239970_e4o1",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Oliver Hart has joined your private sanctuary consultation.",
+          "timestamp": "2026-10-04T06:10:45.910Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "sys_start_1791094245911",
+          "sessionId": "sess_1791094239970_e4o1",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Your complimentary 5-minute consultation has officially started. Enjoy your private reading.",
+          "timestamp": "2026-10-04T06:10:45.910Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_1791094252767_gidu",
+          "sessionId": "sess_1791094239970_e4o1",
+          "sender": "customer",
+          "senderName": "Charlotte Davies",
+          "text": "Hello Oliver, I am at a crossroads with my career in London and feeling uncertain.",
+          "timestamp": "2026-10-04T06:10:52.767Z"
+        },
+        {
+          "id": "msg_1791094252780_6qg3",
+          "sessionId": "sess_1791094239970_e4o1",
+          "sender": "astrologer",
+          "senderName": "Oliver Hart",
+          "text": "Welcome, Charlotte. I am drawing three cards from the Marseille deck now to look into your current vocational cycle. Let us see what clarity emerges.",
+          "timestamp": "2026-10-04T06:10:52.780Z"
+        },
+        {
+          "id": "sys_reassign_1791094257954",
+          "sessionId": "sess_1791094239970_e4o1",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Consultation routed to Pandit Rajeshwar Sharma (Vedic).",
+          "timestamp": "2026-10-04T06:10:57.954Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "sys_1791094549685",
+          "sessionId": "sess_1791094239970_e4o1",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Your complimentary 5-minute introductory period has concluded. Regular reader pricing (£3.50/min) now applies.",
+          "timestamp": "2026-10-04T06:15:49.685Z",
+          "isSystemNotice": true
+        }
+      ],
+      "paymentStatus": "pending_topup",
+      "acceptedAt": "2026-10-04T06:10:45.910Z",
+      "lastMessageText": "Welcome, Charlotte. I am drawing three cards from the Marseille deck now to look into your current vocational cycle. Let us see what clarity emerges.",
+      "lastMessageAt": "2026-10-04T06:10:52.780Z",
+      "unreadForOperator": true,
+      "unreadForCustomer": true
+    },
+    "sess_1791095823468_3189": {
+      "id": "sess_1791095823468_3189",
+      "customerId": "test_tarot_user",
+      "customerName": "Emma",
+      "readingType": "Tarot Reading",
+      "topic": "Love & Relationships",
+      "initialQuestion": "We have become distant recently and I want clarity.",
+      "requestedReaderId": "oliver-hart",
+      "requestedReaderName": "Oliver Hart",
+      "assignedReaderId": "oliver-hart",
+      "assignedReaderName": "Oliver Hart",
+      "status": "waiting",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 300,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 2.8,
+      "createdAt": "2026-10-04T06:37:03.469Z",
+      "messages": [
+        {
+          "id": "sys_connect_1791095823468",
+          "sessionId": "sess_1791095823468_3189",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Connecting you with your reader... Your reading will begin as soon as your specialist connects.",
+          "timestamp": "2026-10-04T06:37:03.468Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_init_1791095823469",
+          "sessionId": "sess_1791095823468_3189",
+          "sender": "customer",
+          "senderName": "Emma",
+          "text": "We have become distant recently and I want clarity.",
+          "timestamp": "2026-10-04T06:37:03.519Z"
+        }
+      ],
+      "paymentStatus": "free_tier"
+    },
+    "sess_1791095830766_kiud": {
+      "id": "sess_1791095830766_kiud",
+      "customerId": "test_vedic_user",
+      "customerName": "Arun",
+      "readingType": "Vedic Astrology",
+      "topic": "Career & Work",
+      "initialQuestion": "Seeking Kundali analysis for career shift.",
+      "birthDetails": {
+        "name": "Arun",
+        "dob": "1988-06-15",
+        "birthTime": "08:30",
+        "amPm": "AM",
+        "placeOfBirth": "London, UK"
+      },
+      "requestedReaderId": "pandit-rajeshwar-sharma",
+      "requestedReaderName": "Pandit Rajeshwar Sharma",
+      "assignedReaderId": "pandit-rajeshwar-sharma",
+      "assignedReaderName": "Pandit Rajeshwar Sharma",
+      "status": "waiting",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 300,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 3.5,
+      "createdAt": "2026-10-04T06:37:10.766Z",
+      "messages": [
+        {
+          "id": "sys_connect_1791095830766",
+          "sessionId": "sess_1791095830766_kiud",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Connecting you with your reader... Your reading will begin as soon as your specialist connects.",
+          "timestamp": "2026-10-04T06:37:10.766Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_init_1791095830766",
+          "sessionId": "sess_1791095830766_kiud",
+          "sender": "customer",
+          "senderName": "Arun",
+          "text": "Seeking Kundali analysis for career shift.",
+          "timestamp": "2026-10-04T06:37:10.816Z"
+        }
+      ],
+      "paymentStatus": "free_tier"
+    },
+    "sess_1791307110840_fuaw": {
+      "id": "sess_1791307110840_fuaw",
+      "customerId": "cust_1791216993977",
+      "customerName": "Ankush",
+      "readingType": "Psychic",
+      "topic": "Love, Career & Life Guidance",
+      "initialQuestion": "Hello Psychic Tamara, I am looking for intuitive guidance on my path.",
+      "birthDetails": {
+        "name": "Ankush",
+        "gender": "Male",
+        "dob": "2001-12-12",
+        "placeOfBirth": "New York, NY, USA",
+        "unknownTime": true
+      },
+      "requestedReaderId": "psychic-tamara",
+      "requestedReaderName": "Psychic Tamara",
+      "assignedReaderId": "psychic-tamara",
+      "assignedReaderName": "Psychic Tamara",
+      "status": "waiting",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 300,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 2.4,
+      "createdAt": "2026-10-06T17:18:30.840Z",
+      "messages": [
+        {
+          "id": "sys_connect_1791307110840",
+          "sessionId": "sess_1791307110840_fuaw",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Connecting you with your reader... Your reading will begin as soon as your specialist connects.",
+          "timestamp": "2026-10-06T17:18:30.840Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_init_1791307110840",
+          "sessionId": "sess_1791307110840_fuaw",
+          "sender": "customer",
+          "senderName": "Ankush",
+          "text": "Hello Psychic Tamara, I am looking for intuitive guidance on my path.",
+          "timestamp": "2026-10-06T17:18:30.890Z"
+        }
+      ],
+      "paymentStatus": "free_tier"
+    },
+    "sess_1791307767324_09gu": {
+      "id": "sess_1791307767324_09gu",
+      "customerId": "cust_1791216993977",
+      "customerName": "Ankush",
+      "readingType": "Psychic",
+      "topic": "Love, Career & Life Guidance",
+      "initialQuestion": "Hello Psychic Gabrielle, I am looking for intuitive guidance on my path.",
+      "birthDetails": {
+        "name": "Ankush",
+        "gender": "Female",
+        "dob": "1998-07-15",
+        "birthTime": "10:30",
+        "amPm": "AM",
+        "placeOfBirth": "London, UK",
+        "unknownTime": false
+      },
+      "requestedReaderId": "psychic-gabrielle",
+      "requestedReaderName": "Psychic Gabrielle",
+      "assignedReaderId": "astro_1791481054043_9t5l",
+      "assignedReaderName": "Acharya Kedar Nath",
+      "status": "active",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 0,
+      "totalDurationSeconds": 32225,
+      "paidSeconds": 31925,
+      "ratePerMinute": 1.75,
+      "createdAt": "2026-10-06T17:29:27.325Z",
+      "messages": [
+        {
+          "id": "msg_details_1791307767324",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "customer",
+          "senderName": "Ankush",
+          "text": "Hi,\nBelow are my details:\nName: Ankush\nGender: Female\nDOB: 1998-07-15\nTOB: 10:30 AM\nPOB: London, UK",
+          "timestamp": "2026-10-06T17:29:27.324Z"
+        },
+        {
+          "id": "msg_welcome_1791307767424",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-06T17:29:27.424Z"
+        },
+        {
+          "id": "msg_join_notice_1791307767524",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Psychic will join within 10 seconds.",
+          "timestamp": "2026-10-06T17:29:27.524Z"
+        },
+        {
+          "id": "msg_share_q_1791307767624",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-06T17:29:27.624Z"
+        },
+        {
+          "id": "msg_joined_1791307767724",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Psychic has joined.",
+          "timestamp": "2026-10-06T17:29:27.724Z"
+        },
+        {
+          "id": "msg_banner_1791307767824",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-06T17:29:27.824Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791307767924",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Hi Ankush",
+          "timestamp": "2026-10-06T17:29:27.924Z"
+        },
+        {
+          "id": "msg_tarot_card_1791307768024",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "The Moon · Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-06T17:29:28.024Z"
+        },
+        {
+          "id": "msg_1791307806557_0cti",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "customer",
+          "senderName": "Ankush",
+          "text": "hi my nam eis ankush",
+          "timestamp": "2026-10-06T17:30:06.557Z"
+        },
+        {
+          "id": "msg_1791307815466_gv53",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "customer",
+          "senderName": "Ankush",
+          "text": "no",
+          "timestamp": "2026-10-06T17:30:15.466Z"
+        },
+        {
+          "id": "msg_1791307819108_vcio",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "customer",
+          "senderName": "Ankush",
+          "text": "looking for vcarrer",
+          "timestamp": "2026-10-06T17:30:19.108Z"
+        },
+        {
+          "id": "sys_join_1791308762682",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Psychic Gabrielle has joined your consultation.",
+          "timestamp": "2026-10-06T17:46:02.682Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_1791308762682_by12",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "what carrer",
+          "timestamp": "2026-10-06T17:46:02.682Z"
+        },
+        {
+          "id": "sys_1791309062498",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Your complimentary 5-minute introductory period has concluded. Regular reader pricing (£1.75/min) now applies.",
+          "timestamp": "2026-10-06T17:51:02.498Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_1791309865283_73vj",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "I sense a very strong transformative energy around your career path right now. Let us look deeper.",
+          "timestamp": "2026-10-06T18:04:25.283Z"
+        },
+        {
+          "id": "msg_1791309871996_ixyz",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "The Star · Key XVII (Hope, Renewal & Guidance from Above)",
+          "timestamp": "2026-10-06T18:04:31.996Z"
+        },
+        {
+          "id": "msg_1791475171488_dlev",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "I sense a very strong transformative energy around your career path right now. Let us look deeper.",
+          "timestamp": "2026-10-08T15:59:31.488Z"
+        },
+        {
+          "id": "msg_1791475175907_tr7e",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "The Star · Key XVII (Hope, Renewal & Guidance from Above)",
+          "timestamp": "2026-10-08T15:59:35.907Z"
+        },
+        {
+          "id": "msg_1791475179347_ws59",
+          "sessionId": "sess_1791307767324_09gu",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "The Star · Key XVII (Hope, Renewal & Guidance from Above)",
+          "timestamp": "2026-10-08T15:59:39.347Z"
+        }
+      ],
+      "paymentStatus": "pending_topup",
+      "lastMessageText": "The Star · Key XVII (Hope, Renewal & Guidance from Above)",
+      "lastMessageAt": "2026-10-08T15:59:39.347Z",
+      "unreadForOperator": true,
+      "acceptedAt": "2026-10-06T17:46:02.682Z",
+      "unreadForCustomer": true,
+      "assignedAstroId": "LYS-10017",
+      "assignmentType": "MANUALLY_FORWARDED",
+      "routingHistory": [
+        {
+          "id": "rh_1791481064270_3rkn",
+          "fromReaderId": "psychic-gabrielle",
+          "fromReaderName": "Psychic Gabrielle",
+          "toReaderId": "astro_1791481054043_9t5l",
+          "toReaderName": "Acharya Kedar Nath",
+          "timestamp": "2026-10-08T17:37:44.270Z",
+          "forwardedBy": "Super Admin",
+          "reason": "Specialist Vedic Consultation"
+        }
+      ]
+    },
+    "sess_1791309926868_j4ry": {
+      "id": "sess_1791309926868_j4ry",
+      "customerId": "cust_1791216993977",
+      "customerName": "Anku",
+      "readingType": "Psychic",
+      "topic": "Love, Career & Life Guidance",
+      "initialQuestion": "Hello Psychic Tamara, I am looking for intuitive guidance on my path.",
+      "birthDetails": {
+        "name": "Anku",
+        "gender": "Female",
+        "dob": "1998-07-15",
+        "birthTime": "10:30",
+        "amPm": "AM",
+        "placeOfBirth": "New York, NY, USA",
+        "unknownTime": false
+      },
+      "requestedReaderId": "psychic-tamara",
+      "requestedReaderName": "Psychic Tamara",
+      "assignedReaderId": "psychic-tamara",
+      "assignedReaderName": "Psychic Tamara",
+      "status": "waiting",
+      "isFreeConsultation": false,
+      "freeSecondsRemaining": 0,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 2.4,
+      "createdAt": "2026-10-06T18:05:26.868Z",
+      "messages": [
+        {
+          "id": "msg_details_1791309926868",
+          "sessionId": "sess_1791309926868_j4ry",
+          "sender": "customer",
+          "senderName": "Anku",
+          "text": "Hi,\nBelow are my details:\nName: Anku\nGender: Female\nDOB: 1998-07-15\nTOB: 10:30 AM\nPOB: New York, NY, USA",
+          "timestamp": "2026-10-06T18:05:26.868Z"
+        },
+        {
+          "id": "msg_welcome_1791309926968",
+          "sessionId": "sess_1791309926868_j4ry",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-06T18:05:26.968Z"
+        },
+        {
+          "id": "msg_join_notice_1791309927068",
+          "sessionId": "sess_1791309926868_j4ry",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Psychic will join within 10 seconds.",
+          "timestamp": "2026-10-06T18:05:27.068Z"
+        },
+        {
+          "id": "msg_share_q_1791309927168",
+          "sessionId": "sess_1791309926868_j4ry",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-06T18:05:27.168Z"
+        },
+        {
+          "id": "msg_joined_1791309927268",
+          "sessionId": "sess_1791309926868_j4ry",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Psychic has joined.",
+          "timestamp": "2026-10-06T18:05:27.268Z"
+        },
+        {
+          "id": "msg_banner_1791309927368",
+          "sessionId": "sess_1791309926868_j4ry",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-06T18:05:27.368Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791309927468",
+          "sessionId": "sess_1791309926868_j4ry",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Hi Anku",
+          "timestamp": "2026-10-06T18:05:27.468Z"
+        },
+        {
+          "id": "msg_tarot_card_1791309927568",
+          "sessionId": "sess_1791309926868_j4ry",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "The Moon · Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-06T18:05:27.568Z"
+        }
+      ],
+      "paymentStatus": "paid_active"
+    },
+    "sess_1791309946749_n799": {
+      "id": "sess_1791309946749_n799",
+      "customerId": "client_1791309946372",
+      "customerName": "James",
+      "readingType": "Career Crossroads & Financial Guidance",
+      "topic": "Career Crossroads & Financial Guidance",
+      "initialQuestion": "I received two different job offers. Which path brings higher alignment and stability?",
+      "birthDetails": {
+        "name": "James Harrington",
+        "gender": "Male",
+        "dob": "22 Mar 1991",
+        "birthTime": "03:15 PM",
+        "placeOfBirth": "Manchester, England, UK",
+        "unknownTime": false
+      },
+      "requestedReaderId": "psychic-marcus",
+      "requestedReaderName": "Psychic Marcus",
+      "assignedReaderId": "psychic-marcus",
+      "assignedReaderName": "Psychic Marcus",
+      "status": "waiting",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 300,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 1.99,
+      "createdAt": "2026-10-06T18:05:46.749Z",
+      "messages": [
+        {
+          "id": "msg_details_1791309946749",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "customer",
+          "senderName": "James Harrington",
+          "text": "Hi,\nBelow are my details:\nName: James Harrington\nGender: Male\nDOB: 22 Mar 1991\nTOB: 03:15 PM\nPOB: Manchester, England, UK",
+          "timestamp": "2026-10-06T18:05:46.749Z"
+        },
+        {
+          "id": "msg_welcome_1791309946849",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "astrologer",
+          "senderName": "Psychic Marcus",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-06T18:05:46.849Z"
+        },
+        {
+          "id": "msg_join_notice_1791309946949",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "astrologer",
+          "senderName": "Psychic Marcus",
+          "text": "Psychic will join within 10 seconds.",
+          "timestamp": "2026-10-06T18:05:46.949Z"
+        },
+        {
+          "id": "msg_share_q_1791309947049",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "astrologer",
+          "senderName": "Psychic Marcus",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-06T18:05:47.049Z"
+        },
+        {
+          "id": "msg_joined_1791309947149",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "astrologer",
+          "senderName": "Psychic Marcus",
+          "text": "Psychic has joined.",
+          "timestamp": "2026-10-06T18:05:47.149Z"
+        },
+        {
+          "id": "msg_banner_1791309947249",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-06T18:05:47.249Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791309947349",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "astrologer",
+          "senderName": "Psychic Marcus",
+          "text": "Hi James Harrington",
+          "timestamp": "2026-10-06T18:05:47.349Z"
+        },
+        {
+          "id": "msg_tarot_card_1791309947449",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "astrologer",
+          "senderName": "Psychic Marcus",
+          "text": "The Moon · Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-06T18:05:47.449Z"
+        },
+        {
+          "id": "msg_init_1791309947549",
+          "sessionId": "sess_1791309946749_n799",
+          "sender": "customer",
+          "senderName": "James",
+          "text": "I received two different job offers. Which path brings higher alignment and stability?",
+          "timestamp": "2026-10-06T18:05:47.549Z"
+        }
+      ],
+      "paymentStatus": "free_tier"
+    },
+    "sess_1791368870630_bd7r": {
+      "id": "sess_1791368870630_bd7r",
+      "customerId": "cust_1791216993977",
+      "customerName": "Ankush",
+      "readingType": "Psychic",
+      "topic": "Love, Career & Life Guidance",
+      "initialQuestion": "Hello Psychic Priya, I am looking for intuitive guidance on my path.",
+      "birthDetails": {
+        "name": "Ankush",
+        "gender": "Male",
+        "dob": "1998-07-15",
+        "birthTime": "10:30",
+        "amPm": "AM",
+        "placeOfBirth": "Manchester, UK",
+        "unknownTime": false
+      },
+      "requestedReaderId": "psychic-priya",
+      "requestedReaderName": "Psychic Priya",
+      "assignedReaderId": "psychic-priya",
+      "assignedReaderName": "Psychic Priya",
+      "status": "waiting",
+      "isFreeConsultation": false,
+      "freeSecondsRemaining": 0,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 0.99,
+      "createdAt": "2026-10-07T10:27:50.630Z",
+      "messages": [
+        {
+          "id": "msg_details_1791368870630",
+          "sessionId": "sess_1791368870630_bd7r",
+          "sender": "customer",
+          "senderName": "Ankush",
+          "text": "Hi,\nBelow are my details:\nName: Ankush\nGender: Male\nDOB: 1998-07-15\nTOB: 10:30 AM\nPOB: Manchester, UK",
+          "timestamp": "2026-10-07T10:27:50.630Z"
+        },
+        {
+          "id": "msg_welcome_1791368870730",
+          "sessionId": "sess_1791368870630_bd7r",
+          "sender": "astrologer",
+          "senderName": "Psychic Priya",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-07T10:27:50.730Z"
+        },
+        {
+          "id": "msg_join_notice_1791368870830",
+          "sessionId": "sess_1791368870630_bd7r",
+          "sender": "astrologer",
+          "senderName": "Psychic Priya",
+          "text": "Psychic will join within 10 seconds.",
+          "timestamp": "2026-10-07T10:27:50.830Z"
+        },
+        {
+          "id": "msg_share_q_1791368870930",
+          "sessionId": "sess_1791368870630_bd7r",
+          "sender": "astrologer",
+          "senderName": "Psychic Priya",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-07T10:27:50.930Z"
+        },
+        {
+          "id": "msg_joined_1791368871030",
+          "sessionId": "sess_1791368870630_bd7r",
+          "sender": "astrologer",
+          "senderName": "Psychic Priya",
+          "text": "Psychic has joined.",
+          "timestamp": "2026-10-07T10:27:51.030Z"
+        },
+        {
+          "id": "msg_banner_1791368871130",
+          "sessionId": "sess_1791368870630_bd7r",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-07T10:27:51.130Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791368871230",
+          "sessionId": "sess_1791368870630_bd7r",
+          "sender": "astrologer",
+          "senderName": "Psychic Priya",
+          "text": "Hi Ankush",
+          "timestamp": "2026-10-07T10:27:51.230Z"
+        },
+        {
+          "id": "msg_tarot_card_1791368871330",
+          "sessionId": "sess_1791368870630_bd7r",
+          "sender": "astrologer",
+          "senderName": "Psychic Priya",
+          "text": "The Moon – Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-07T10:27:51.330Z"
+        }
+      ],
+      "paymentStatus": "paid_active"
+    },
+    "sess_1791475114506_o8a6": {
+      "id": "sess_1791475114506_o8a6",
+      "customerId": "client_1791475114131",
+      "customerName": "Maya",
+      "readingType": "Spiritual Awakening & Life Purpose",
+      "topic": "Spiritual Awakening & Life Purpose",
+      "initialQuestion": "I am seeing repeating numbers and need clarity on my spiritual journey.",
+      "birthDetails": {
+        "name": "Maya Patel",
+        "gender": "Female",
+        "dob": "05 Jul 1997",
+        "birthTime": "10:00 AM",
+        "placeOfBirth": "Birmingham, West Midlands, UK",
+        "unknownTime": false
+      },
+      "requestedReaderId": "psychic-gabrielle",
+      "requestedReaderName": "Psychic Gabrielle",
+      "assignedReaderId": "psychic-gabrielle",
+      "assignedReaderName": "Psychic Gabrielle",
+      "status": "waiting",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 120,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 1.75,
+      "createdAt": "2026-10-08T15:58:34.506Z",
+      "messages": [
+        {
+          "id": "msg_details_1791475114506",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "customer",
+          "senderName": "Maya Patel",
+          "text": "Hi,\nBelow are my details:\nName: Maya Patel\nGender: Female\nDOB: 05 Jul 1997\nTOB: 10:00 AM\nPOB: Birmingham, West Midlands, UK",
+          "timestamp": "2026-10-08T15:58:34.506Z"
+        },
+        {
+          "id": "msg_welcome_1791475114606",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-08T15:58:34.606Z"
+        },
+        {
+          "id": "msg_join_notice_1791475114706",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Psychic will join within 10 seconds.",
+          "timestamp": "2026-10-08T15:58:34.706Z"
+        },
+        {
+          "id": "msg_share_q_1791475114806",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-08T15:58:34.806Z"
+        },
+        {
+          "id": "msg_joined_1791475114906",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Psychic has joined.",
+          "timestamp": "2026-10-08T15:58:34.906Z"
+        },
+        {
+          "id": "msg_banner_1791475115006",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-08T15:58:35.006Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791475115106",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "Hi Maya Patel",
+          "timestamp": "2026-10-08T15:58:35.106Z"
+        },
+        {
+          "id": "msg_tarot_card_1791475115206",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "astrologer",
+          "senderName": "Psychic Gabrielle",
+          "text": "The Moon – Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-08T15:58:35.206Z"
+        },
+        {
+          "id": "msg_init_1791475115306",
+          "sessionId": "sess_1791475114506_o8a6",
+          "sender": "customer",
+          "senderName": "Maya",
+          "text": "I am seeing repeating numbers and need clarity on my spiritual journey.",
+          "timestamp": "2026-10-08T15:58:35.306Z"
+        }
+      ],
+      "paymentStatus": "free_tier"
+    },
+    "sess_1791475125772_plcw": {
+      "id": "sess_1791475125772_plcw",
+      "customerId": "client_1791475125464",
+      "customerName": "Maya",
+      "readingType": "Spiritual Awakening & Life Purpose",
+      "topic": "Spiritual Awakening & Life Purpose",
+      "initialQuestion": "I am seeing repeating numbers and need clarity on my spiritual journey.",
+      "birthDetails": {
+        "name": "Maya Patel",
+        "gender": "Female",
+        "dob": "05 Jul 1997",
+        "birthTime": "10:00 AM",
+        "placeOfBirth": "Birmingham, West Midlands, UK",
+        "unknownTime": false
+      },
+      "requestedReaderId": "psychic-tamara",
+      "requestedReaderName": "Psychic Tamara",
+      "assignedReaderId": "psychic-tamara",
+      "assignedReaderName": "Psychic Tamara",
+      "status": "active",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 0,
+      "totalDurationSeconds": 13351,
+      "paidSeconds": 13231,
+      "ratePerMinute": 2.4,
+      "createdAt": "2026-10-08T15:58:45.772Z",
+      "messages": [
+        {
+          "id": "msg_details_1791475125772",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "customer",
+          "senderName": "Maya Patel",
+          "text": "Hi,\nBelow are my details:\nName: Maya Patel\nGender: Female\nDOB: 05 Jul 1997\nTOB: 10:00 AM\nPOB: Birmingham, West Midlands, UK",
+          "timestamp": "2026-10-08T15:58:45.772Z"
+        },
+        {
+          "id": "msg_welcome_1791475125872",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-08T15:58:45.872Z"
+        },
+        {
+          "id": "msg_join_notice_1791475125972",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Psychic will join within 10 seconds.",
+          "timestamp": "2026-10-08T15:58:45.972Z"
+        },
+        {
+          "id": "msg_share_q_1791475126072",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-08T15:58:46.072Z"
+        },
+        {
+          "id": "msg_joined_1791475126172",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Psychic has joined.",
+          "timestamp": "2026-10-08T15:58:46.172Z"
+        },
+        {
+          "id": "msg_banner_1791475126272",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-08T15:58:46.272Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791475126372",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Hi Maya Patel",
+          "timestamp": "2026-10-08T15:58:46.372Z"
+        },
+        {
+          "id": "msg_tarot_card_1791475126472",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "The Moon – Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-08T15:58:46.472Z"
+        },
+        {
+          "id": "msg_init_1791475126572",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "customer",
+          "senderName": "Maya",
+          "text": "I am seeing repeating numbers and need clarity on my spiritual journey.",
+          "timestamp": "2026-10-08T15:58:46.572Z"
+        },
+        {
+          "id": "sys_join_1791479000366",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Psychic Tamara has joined your private sanctuary consultation.",
+          "timestamp": "2026-10-08T17:03:20.366Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "sys_start_1791479000367",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Your complimentary first free chat consultation has officially started. Enjoy your private reading.",
+          "timestamp": "2026-10-08T17:03:20.366Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_1791479009247_k8io",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "jhhhj",
+          "timestamp": "2026-10-08T17:03:29.247Z"
+        },
+        {
+          "id": "sys_1791479119781",
+          "sessionId": "sess_1791475125772_plcw",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Your complimentary introductory free chat has concluded. Regular reader pricing (£2.40/min) now applies.",
+          "timestamp": "2026-10-08T17:05:19.781Z",
+          "isSystemNotice": true
+        }
+      ],
+      "paymentStatus": "pending_topup",
+      "acceptedAt": "2026-10-08T17:03:20.366Z",
+      "lastMessageText": "jhhhj",
+      "lastMessageAt": "2026-10-08T17:03:29.247Z",
+      "unreadForCustomer": true
+    },
+    "sess_1791475158357_5bou": {
+      "id": "sess_1791475158357_5bou",
+      "customerId": "client_1791475158043",
+      "customerName": "Elena",
+      "readingType": "Love, Soulmate Connection & Next Steps",
+      "topic": "Love, Soulmate Connection & Next Steps",
+      "initialQuestion": "I feel a sudden energetic shift with someone from my past. Will we reconnect this month?",
+      "birthDetails": {
+        "name": "Elena Rostova",
+        "gender": "Female",
+        "dob": "14 Nov 1994",
+        "birthTime": "08:45 AM",
+        "placeOfBirth": "London, Greater London, UK",
+        "unknownTime": false
+      },
+      "requestedReaderId": "psychic-tamara",
+      "requestedReaderName": "Psychic Tamara",
+      "assignedReaderId": "psychic-tamara",
+      "assignedReaderName": "Psychic Tamara",
+      "status": "active",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 0,
+      "totalDurationSeconds": 15860,
+      "paidSeconds": 15740,
+      "ratePerMinute": 2.4,
+      "createdAt": "2026-10-08T15:59:18.357Z",
+      "messages": [
+        {
+          "id": "msg_details_1791475158357",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "customer",
+          "senderName": "Elena Rostova",
+          "text": "Hi,\nBelow are my details:\nName: Elena Rostova\nGender: Female\nDOB: 14 Nov 1994\nTOB: 08:45 AM\nPOB: London, Greater London, UK",
+          "timestamp": "2026-10-08T15:59:18.357Z"
+        },
+        {
+          "id": "msg_welcome_1791475158457",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-08T15:59:18.457Z"
+        },
+        {
+          "id": "msg_join_notice_1791475158557",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Psychic will join within 10 seconds.",
+          "timestamp": "2026-10-08T15:59:18.557Z"
+        },
+        {
+          "id": "msg_share_q_1791475158657",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-08T15:59:18.657Z"
+        },
+        {
+          "id": "msg_joined_1791475158757",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Psychic has joined.",
+          "timestamp": "2026-10-08T15:59:18.757Z"
+        },
+        {
+          "id": "msg_banner_1791475158857",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-08T15:59:18.857Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791475158957",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Hi Elena Rostova",
+          "timestamp": "2026-10-08T15:59:18.957Z"
+        },
+        {
+          "id": "msg_tarot_card_1791475159057",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "The Moon – Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-08T15:59:19.057Z"
+        },
+        {
+          "id": "msg_init_1791475159157",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "customer",
+          "senderName": "Elena",
+          "text": "I feel a sudden energetic shift with someone from my past. Will we reconnect this month?",
+          "timestamp": "2026-10-08T15:59:19.157Z"
+        },
+        {
+          "id": "sys_join_1791476476583",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Psychic Tamara has joined your consultation.",
+          "timestamp": "2026-10-08T16:21:16.583Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_1791476476583_mx13",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "🙏 Pranam! Main aapki kundli dekh raha hoon, kripya 1 minute pratiksha karein.",
+          "timestamp": "2026-10-08T16:21:16.583Z"
+        },
+        {
+          "id": "msg_1791476481145_17hm",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "✨ Kripya apna mukhya prashna (Query) aur date of birth confirm karein.",
+          "timestamp": "2026-10-08T16:21:21.145Z"
+        },
+        {
+          "id": "sys_1791476596209",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "system",
+          "senderName": "Astral & Sage System",
+          "text": "Your complimentary introductory free chat has concluded. Regular reader pricing (£2.40/min) now applies.",
+          "timestamp": "2026-10-08T16:23:16.209Z",
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_1791479827475_2tsq",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "kkl",
+          "timestamp": "2026-10-08T17:17:07.475Z"
+        },
+        {
+          "id": "msg_1791479829245_7hck",
+          "sessionId": "sess_1791475158357_5bou",
+          "sender": "customer",
+          "senderName": "Elena",
+          "text": "Thank you for this guidance. That brings a lot of clarity.",
+          "timestamp": "2026-10-08T17:17:09.245Z"
+        }
+      ],
+      "paymentStatus": "pending_topup",
+      "acceptedAt": "2026-10-08T16:21:16.583Z",
+      "lastMessageText": "Thank you for this guidance. That brings a lot of clarity.",
+      "lastMessageAt": "2026-10-08T17:17:09.245Z",
+      "unreadForCustomer": true,
+      "unreadForOperator": true
+    },
+    "sess_1791478456209_ous0": {
+      "id": "sess_1791478456209_ous0",
+      "customerId": "cust_1791478456209",
+      "customerName": "Neha Gupta",
+      "readingType": "General Consultation",
+      "topic": "Career Consultation",
+      "requestedReaderId": "reader-1791478435214",
+      "requestedReaderName": "Acharya Vikram",
+      "requestedAstroId": "ASTRO-9999",
+      "assignedReaderId": "reader-1791478435214",
+      "assignedReaderName": "Acharya Vikram",
+      "assignedAstroId": "ASTRO-9999",
+      "status": "waiting",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 120,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 2.5,
+      "createdAt": "2026-10-08T16:54:16.210Z",
+      "messages": [
+        {
+          "id": "msg_details_1791478456209",
+          "sessionId": "sess_1791478456209_ous0",
+          "sender": "customer",
+          "senderName": "Neha Gupta",
+          "text": "Hi,\nBelow are my details:\nName: Neha Gupta\nGender: Not specified\nDOB: Not specified\nTOB: Not specified\nPOB: Not specified",
+          "timestamp": "2026-10-08T16:54:16.209Z"
+        },
+        {
+          "id": "msg_welcome_1791478456309",
+          "sessionId": "sess_1791478456209_ous0",
+          "sender": "astrologer",
+          "senderName": "Acharya Vikram",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-08T16:54:16.309Z"
+        },
+        {
+          "id": "msg_join_notice_1791478456409",
+          "sessionId": "sess_1791478456209_ous0",
+          "sender": "astrologer",
+          "senderName": "Acharya Vikram",
+          "text": "Tarot will join within 10 seconds.",
+          "timestamp": "2026-10-08T16:54:16.409Z"
+        },
+        {
+          "id": "msg_share_q_1791478456509",
+          "sessionId": "sess_1791478456209_ous0",
+          "sender": "astrologer",
+          "senderName": "Acharya Vikram",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-08T16:54:16.509Z"
+        },
+        {
+          "id": "msg_joined_1791478456609",
+          "sessionId": "sess_1791478456209_ous0",
+          "sender": "astrologer",
+          "senderName": "Acharya Vikram",
+          "text": "Tarot has joined.",
+          "timestamp": "2026-10-08T16:54:16.609Z"
+        },
+        {
+          "id": "msg_banner_1791478456709",
+          "sessionId": "sess_1791478456209_ous0",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-08T16:54:16.709Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791478456809",
+          "sessionId": "sess_1791478456209_ous0",
+          "sender": "astrologer",
+          "senderName": "Acharya Vikram",
+          "text": "Hi Neha Gupta",
+          "timestamp": "2026-10-08T16:54:16.809Z"
+        },
+        {
+          "id": "msg_tarot_card_1791478456909",
+          "sessionId": "sess_1791478456209_ous0",
+          "sender": "astrologer",
+          "senderName": "Acharya Vikram",
+          "text": "The Moon – Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-08T16:54:16.909Z"
+        }
+      ],
+      "paymentStatus": "free_tier"
+    },
+    "sess_1791479843365_hfb8": {
+      "id": "sess_1791479843365_hfb8",
+      "customerId": "cust_ankush_1791479843181",
+      "customerName": "Ankush",
+      "readingType": "Astrology Consultation",
+      "topic": "Career & Life Path Guidance",
+      "initialQuestion": "Hello, I am looking for intuitive guidance on my path.",
+      "requestedReaderId": "psychic-tamara",
+      "requestedReaderName": "Psychic Tamara",
+      "requestedAstroId": "psychic-tamara",
+      "assignedReaderId": "psychic-tamara",
+      "assignedReaderName": "Psychic Tamara",
+      "assignedAstroId": "psychic-tamara",
+      "status": "waiting",
+      "isFreeConsultation": true,
+      "freeSecondsRemaining": 120,
+      "totalDurationSeconds": 0,
+      "paidSeconds": 0,
+      "ratePerMinute": 2.4,
+      "createdAt": "2026-10-08T17:17:23.365Z",
+      "messages": [
+        {
+          "id": "msg_details_1791479843365",
+          "sessionId": "sess_1791479843365_hfb8",
+          "sender": "customer",
+          "senderName": "Ankush",
+          "text": "Hi,\nBelow are my details:\nName: Ankush\nGender: Not specified\nDOB: Not specified\nTOB: Not specified\nPOB: Not specified",
+          "timestamp": "2026-10-08T17:17:23.365Z"
+        },
+        {
+          "id": "msg_welcome_1791479843465",
+          "sessionId": "sess_1791479843365_hfb8",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Welcome to Astral!",
+          "timestamp": "2026-10-08T17:17:23.465Z"
+        },
+        {
+          "id": "msg_join_notice_1791479843565",
+          "sessionId": "sess_1791479843365_hfb8",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Psychic will join within 10 seconds.",
+          "timestamp": "2026-10-08T17:17:23.565Z"
+        },
+        {
+          "id": "msg_share_q_1791479843665",
+          "sessionId": "sess_1791479843365_hfb8",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Please share your question in the meanwhile.",
+          "timestamp": "2026-10-08T17:17:23.665Z"
+        },
+        {
+          "id": "msg_joined_1791479843765",
+          "sessionId": "sess_1791479843365_hfb8",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Psychic has joined.",
+          "timestamp": "2026-10-08T17:17:23.765Z"
+        },
+        {
+          "id": "msg_banner_1791479843865",
+          "sessionId": "sess_1791479843365_hfb8",
+          "sender": "system",
+          "senderName": "System Notice",
+          "text": "This is an automated message to confirm that chat has started.",
+          "timestamp": "2026-10-08T17:17:23.865Z",
+          "isBanner": true,
+          "isSystemNotice": true
+        },
+        {
+          "id": "msg_greet_1791479843965",
+          "sessionId": "sess_1791479843365_hfb8",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "Hi Ankush",
+          "timestamp": "2026-10-08T17:17:23.965Z"
+        },
+        {
+          "id": "msg_tarot_card_1791479844065",
+          "sessionId": "sess_1791479843365_hfb8",
+          "sender": "astrologer",
+          "senderName": "Psychic Tamara",
+          "text": "The Moon – Key XVIII (Illumination, Intuition & Deeper Truths)",
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+          "timestamp": "2026-10-08T17:17:24.065Z"
+        }
+      ],
+      "paymentStatus": "free_tier"
+    }
+  },
+  "stats": {
+    "activeChats": 4,
+    "waitingChats": 9,
+    "todaysChats": 21,
+    "completedChats": 142,
+    "onlineReaders": 16,
+    "todaysEarnings": 5497.799999999917,
+    "weeklyEarnings": 7153.299999999825,
+    "monthlyEarnings": 13463.299999999825
+  },
+  "activityLogs": [
+    {
+      "id": "log_init_1",
+      "action": "Forwarded Chat #09gu to Tarot Devendra",
+      "admin": "Super Admin",
+      "date": "2026-10-08",
+      "time": "10:15 AM",
+      "target": "Chat sess_1791307767324_09gu",
+      "previousValue": "Psychic Gabrielle",
+      "newValue": "Tarot Devendra"
+    },
+    {
+      "id": "log_init_2",
+      "action": "Updated global chat price",
+      "admin": "Finance Admin",
+      "date": "2026-10-08",
+      "time": "09:30 AM",
+      "target": "Global Pricing",
+      "previousValue": "£1.25/min",
+      "newValue": "£1.50/min"
+    },
+    {
+      "id": "log_init_3",
+      "action": "Enabled Auto-Assignment Engine",
+      "admin": "Super Admin",
+      "date": "2026-10-08",
+      "time": "09:00 AM",
+      "target": "Chat Routing Engine",
+      "previousValue": "OFF",
+      "newValue": "ON (Max 3 chats)"
+    },
+    {
+      "id": "log_init_4",
+      "action": "Created Astrologer Profile LYS-10018",
+      "admin": "Operations Admin",
+      "date": "2026-10-07",
+      "time": "04:45 PM",
+      "target": "Astrologer Accounts",
+      "previousValue": "17 Astrologers",
+      "newValue": "18 Astrologers"
+    }
+  ],
+  "autoAssignSettings": {
+    "enabled": true,
+    "maxChatsPerAstrologer": 3,
+    "idlePriority": true,
+    "escalationTimeoutMinutes": 2,
+    "specializationMatching": true,
+    "onlineOnly": true,
+    "fallbackAstrologerId": "tarot-devendra"
+  },
+  "remedies": [
+    {
+      "id": "rem_love_01",
+      "title": "Rose Quartz Sacred Venus Alignment",
+      "category": "Love",
+      "description": "Consecrated crystal and Vedic mantra regimen to dissolve relationship friction, heal emotional wounds, and align Venusian frequencies.",
+      "benefits": [
+        "Heals past heartbreak",
+        "Softens communication between partners",
+        "Enhances magnetic attraction"
+      ],
+      "howToUse": "Place on your bedside table and meditate for 11 minutes at sunset facing East.",
+      "duration": "21 Days",
+      "instructions": "Chant Om Shukraya Namaha 108 times daily while holding the consecrated crystal.",
+      "imageUrl": "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80",
+      "status": "published",
+      "isFeatured": true,
+      "price": 35
+    },
+    {
+      "id": "rem_career_02",
+      "title": "Pyrite & Sun Yantra Career Catalyst",
+      "category": "Career",
+      "description": "High-vibrational pyrite cluster empowered with Aditya Hridaya Stotram for promotion breakthroughs, business authority, and leadership recognition.",
+      "benefits": [
+        "Attracts senior executive notice",
+        "Dissolves professional stagnation",
+        "Sharpens decision-making authority"
+      ],
+      "howToUse": "Keep on your work desk facing North-East.",
+      "duration": "40 Days",
+      "instructions": "Cleanse with sandalwood smoke each Sunday morning.",
+      "imageUrl": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80",
+      "status": "published",
+      "isFeatured": true,
+      "price": 45
+    },
+    {
+      "id": "rem_wealth_03",
+      "title": "Kubera Lakshmi Emerald Abundance Grid",
+      "category": "Finance",
+      "description": "Vedic geometrical yantra infused with green aventurine and cloves to attract sustained liquidity and block sudden financial leaks.",
+      "benefits": [
+        "Multiplies incoming revenue streams",
+        "Stabilizes long-term investments",
+        "Protects against debt accumulation"
+      ],
+      "howToUse": "Position inside your cash box or financial documents folder.",
+      "duration": "Ongoing",
+      "instructions": "Offer fresh yellow flowers every Friday evening.",
+      "imageUrl": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+      "status": "published",
+      "isFeatured": true,
+      "price": 55
+    },
+    {
+      "id": "rem_planetary_04",
+      "title": "Shani Shanti Saturn Transit Harmonizer",
+      "category": "Planetary",
+      "description": "Sacred iron horseshoe ring and blue sapphire substitute consecrated on Saturday night to soothe Saturn Sade Sati transits.",
+      "benefits": [
+        "Reduces mental burden and delay",
+        "Transforms discipline into rewards",
+        "Prevents unexpected hurdles"
+      ],
+      "howToUse": "Wear on middle finger of right hand on Saturday morning.",
+      "duration": "1 Year",
+      "instructions": "Light a sesame oil lamp beneath a peepal tree once weekly.",
+      "imageUrl": "https://images.unsplash.com/photo-1507499739999-097706ad8914?auto=format&fit=crop&w=800&q=80",
+      "status": "published",
+      "isFeatured": false,
+      "price": 40
+    },
+    {
+      "id": "rem_spiritual_05",
+      "title": "Black Obsidian Aura Shield & Cord Cutting",
+      "category": "Spiritual",
+      "description": "Potent energetic barrier that neutralizes evil eye, psychic heaviness, and unhelpful cords from past relationships.",
+      "benefits": [
+        "Prevents energy vampirism",
+        "Clears heavy night dreams",
+        "Restores authentic personal boundaries"
+      ],
+      "howToUse": "Carry in your left pocket or place beneath pillow.",
+      "duration": "14 Days",
+      "instructions": "Rinse with sea-salt water during every full moon cycle.",
+      "imageUrl": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+      "status": "published",
+      "isFeatured": true,
+      "price": 30
+    }
+  ]
+}
