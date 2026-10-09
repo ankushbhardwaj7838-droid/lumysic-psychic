@@ -516,13 +516,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </AnimatePresence>
               </div>
 
-              {/* Admin Dashboard Direct Button */}
-              <button
-                type="button"
-                onClick={() => handleNav('admin')}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold shadow-sm shadow-rose-900/30 transition-all cursor-pointer active:scale-95"
-                title="LUMSIC Admin Dashboard"
-              >
+            
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Admin</span>
               </button>
