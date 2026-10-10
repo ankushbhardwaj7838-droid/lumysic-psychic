@@ -2157,7 +2157,6 @@ app.get('/api/admin/earnings/date-wise', (req: Request, res: Response) => {
   completed.forEach(s => {
     totalRev += (s.paidSeconds / 60) * s.ratePerMinute;
   });
-  if (totalRev === 0) totalRev = filtered.length * 14.5; // realistic fallback for mock
 
   const platformRev = totalRev * 0.40;
   const astrologerEarnings = totalRev * 0.60;
