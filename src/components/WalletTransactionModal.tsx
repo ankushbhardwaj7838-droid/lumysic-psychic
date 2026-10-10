@@ -102,19 +102,7 @@ export const WalletTransactionModal: React.FC<WalletTransactionModalProps> = ({
     } catch {
       // fallback
     }
-    return [
-      {
-        id: 'txn-demo-psychic',
-        title: 'Chat with Master Psychic for 2 minutes',
-        subtitle: '06 Oct 26, 10:37 PM',
-        date: '06 Oct 26, 10:37 PM',
-        orderId: '#CHAT_NEW423749565',
-        amount: 0.0,
-        type: 'debit',
-        rechargePart: 0.0,
-        bonusPart: 0.0
-      }
-    ];
+    return [];
   });
 
   // Payment logs

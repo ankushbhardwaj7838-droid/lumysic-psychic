@@ -169,35 +169,6 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
     }, 600);
   };
 
-  const handleAutoFillDemoOtp = () => {
-    setOtp(['1', '2', '3', '4']);
-    setOtpError('');
-    setTimeout(() => {
-      const cleanPhone = `${selectedCountry.dialCode} ${phoneNumber.trim() || '50 123 4567'}`;
-      const finalName = userName.trim() || 'LUMSIC Seeker';
-      const resolvedCurrency = selectedCountry.code === 'GB' || selectedCountry.dialCode === '+44' ? 'GBP' : 'USD';
-      localStorage.setItem('astral_customer_name', finalName);
-      localStorage.setItem('lumysic_user_name', finalName);
-      localStorage.setItem('lumsic_user_name', finalName);
-      localStorage.setItem('astral_customer_phone', cleanPhone);
-      localStorage.setItem('lumysic_user_phone', cleanPhone);
-      localStorage.setItem('lumsic_user_phone', cleanPhone);
-      localStorage.setItem('astral_currency', resolvedCurrency);
-      localStorage.setItem('astral_is_logged_in', 'true');
-      onLoginSuccess({
-        id: 'usr_' + Date.now(),
-        name: finalName,
-        phone: cleanPhone,
-        country: selectedCountry.code,
-        countryCode: selectedCountry.dialCode,
-        currency: resolvedCurrency,
-        isFirstTimeUser: false,
-        freeMinutesUsed: false,
-        totalConsultations: 0
-      });
-    }, 350);
-  };
-
   const handleGoogleLogin = () => {
     setIsVerifying(true);
     setTimeout(() => {
@@ -421,8 +392,8 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
               <div className="flex-1 h-px bg-white/10" />
             </div>
 
-            {/* Social Logins: Google & Truecaller */}
-            <div className="grid grid-cols-2 gap-3">
+            {/* Social Login: Google */}
+            <div className="grid grid-cols-1 gap-3">
               {/* Google Button */}
               <button
                 type="button"
@@ -449,16 +420,6 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
                 </svg>
                 <span>Google</span>
               </button>
-
-              {/* Truecaller / Apple Button */}
-              <button
-                type="button"
-                onClick={handleAutoFillDemoOtp}
-                className="py-3 px-3 rounded-2xl bg-[#0087FF]/15 hover:bg-[#0087FF]/25 border border-[#0087FF]/40 text-[#60A5FA] font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Phone className="w-4 h-4 fill-current text-[#60A5FA]" />
-                <span>Truecaller</span>
-              </button>
             </div>
 
             {onBackToSite && (
@@ -469,7 +430,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
                   className="w-full py-2.5 px-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/40 text-slate-300 hover:text-white font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5 text-[#F6D06E]" />
-                  <span>Return to Website Preview</span>
+                  <span>Back to Website</span>
                 </button>
               </div>
             )}
@@ -524,15 +485,6 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
             >
               <Sparkles className="w-4 h-4 fill-gray-950" />
               <span>{isVerifying ? 'Verifying...' : 'Verify & Enter'}</span>
-            </button>
-
-            {/* Quick Demo Helper Button */}
-            <button
-              type="button"
-              onClick={handleAutoFillDemoOtp}
-              className="w-full mt-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs text-amber-300/90 font-medium transition-colors cursor-pointer border border-amber-400/20"
-            >
-              Demo: One-Tap Auto-Fill (1234)
             </button>
 
             {/* Resend OTP */}
