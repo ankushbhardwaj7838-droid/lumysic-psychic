@@ -1,8 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Search, ChevronDown, Check, ArrowLeft, Sparkles, Shield, Phone, Mail, Globe, Lock, X, User } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  Search, ChevronDown, Check, ArrowLeft, Sparkles, Shield, Phone, Mail, 
+  Globe, Lock, X, User, AlertCircle, Loader2, RefreshCw 
+} from 'lucide-react';
 import { COUNTRIES, CountryInfo, detectUserGeo } from '../utils/currency';
 import { CustomerProfile } from '../types';
 import { LumysicLogo } from './LumysicLogo';
+import { 
+  sendEmailOtp, 
+  verifyEmailOtp, 
+  upsertUserProfile, 
+  getUserProfile, 
+  isSupabaseConfigured 
+} from '../lib/supabase';
 
 export interface AuthRedirectTarget {
   profileId?: string;
@@ -24,8 +34,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
   detectedGeo,
   redirectTarget
 }) => {
-  // Unified authentication redirect logic:
-  // Detects pre-login profile targets from prop, sessionStorage, or URL hash
+  // Unified authentication redirect logic
   const [activeRedirect, setActiveRedirect] = useState<AuthRedirectTarget | null>(() => {
     if (redirectTarget) return redirectTarget;
     try {
@@ -50,33 +59,42 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
     }
   }, [redirectTarget]);
 
-  const completeAuth = (profile: Partial<CustomerProfile>) => {
-    try {
-      sessionStorage.removeItem('lumysic_auth_redirect_target');
-    } catch {}
-    onLoginSuccess(profile, activeRedirect);
-  };
-
+  // Form State
   const [selectedCountry, setSelectedCountry] = useState<CountryInfo>(
     detectedGeo || COUNTRIES.find(c => c.code === 'US') || COUNTRIES[0]
   );
-  const [userName, setUserName] = useState(() => {
+  const [fullName, setFullName] = useState(() => {
     return localStorage.getItem('lumysic_user_name') || localStorage.getItem('astral_customer_name') || '';
+  });
+  const [emailAddress, setEmailAddress] = useState(() => {
+    return localStorage.getItem('lumysic_user_email') || '';
   });
   const [phoneNumber, setPhoneNumber] = useState(() => {
     const saved = localStorage.getItem('lumysic_user_phone') || localStorage.getItem('astral_customer_phone') || '';
     return saved.replace(/^\+\d+\s*/, '');
   });
+
+  // UI Flow State
+  // 'form' -> Enter Full Name, Phone (+ country code), and Email Address
+  // 'otp' -> 6-Digit Email OTP verification screen
+  // 'profile_completion' -> If an existing user logged in with missing name or phone
+  const [step, setStep] = useState<'form' | 'otp' | 'profile_completion'>('form');
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
   const [formError, setFormError] = useState('');
+  const [otpError, setOtpError] = useState('');
+  const [statusMessage, setStatusMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [resendCountdown, setResendCountdown] = useState(60);
+
+  // Completed user context after OTP verification (for profile completion if needed)
+  const [authenticatedUserId, setAuthenticatedUserId] = useState<string>('');
+
+  // Country selector modal
   const [isCountryPickerOpen, setIsCountryPickerOpen] = useState(false);
   const [countrySearch, setCountrySearch] = useState('');
 
-  // OTP Step
-  const [step, setStep] = useState<'phone' | 'otp'>('phone');
-  const [otp, setOtp] = useState(['', '', '', '']);
-  const [otpError, setOtpError] = useState('');
-  const [isVerifying, setIsVerifying] = useState(false);
-  const [resendCountdown, setResendCountdown] = useState(30);
+  // Ref array for 6 OTP boxes
+  const otpInputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   // Auto-detect geo if not provided
   useEffect(() => {
@@ -89,7 +107,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
     }
   }, [detectedGeo]);
 
-  // Resend timer
+  // Resend Countdown Timer
   useEffect(() => {
     if (step === 'otp' && resendCountdown > 0) {
       const timer = setTimeout(() => setResendCountdown(prev => prev - 1), 1000);
@@ -103,140 +121,307 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
     c.currency.toLowerCase().includes(countrySearch.toLowerCase())
   );
 
-  const handleSendOtp = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    const cleanName = userName.trim();
-    if (!cleanName) {
-      setFormError('Please enter your name');
-      return;
-    }
-    if (!phoneNumber.trim() || phoneNumber.replace(/\D/g, '').length < 6) {
-      setFormError('Please enter a valid contact number');
-      return;
-    }
-    setFormError('');
-    setStep('otp');
-    setResendCountdown(30);
-    setOtpError('');
+  // Validate E.164 phone number format helper
+  const formatE164Phone = (dialCode: string, rawPhone: string) => {
+    const digitsOnly = rawPhone.replace(/\D/g, '');
+    const cleanDial = dialCode.replace(/\s+/g, '');
+    return `${cleanDial}${digitsOnly}`;
   };
 
-  const handleInstantLogin = (e?: React.FormEvent) => {
+  // =========================================================================
+  // 1. SEND REAL EMAIL OTP THROUGH SUPABASE AUTH
+  // =========================================================================
+  const handleRequestEmailOtp = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    const cleanName = userName.trim();
-    if (!cleanName) {
-      setFormError('Please enter your name');
-      return;
-    }
-    if (!phoneNumber.trim() || phoneNumber.replace(/\D/g, '').length < 6) {
-      setFormError('Please enter a valid contact number');
-      return;
-    }
     setFormError('');
-    setIsVerifying(true);
-    setTimeout(() => {
-      setIsVerifying(false);
-      const cleanPhone = `${selectedCountry.dialCode} ${phoneNumber.trim()}`;
-      const resolvedCurrency = selectedCountry.code === 'GB' || selectedCountry.dialCode === '+44' ? 'GBP' : 'USD';
-      localStorage.setItem('astral_customer_name', cleanName);
+    setStatusMessage('');
+
+    const cleanName = fullName.trim();
+    const cleanEmail = emailAddress.trim().toLowerCase();
+    const cleanPhoneDigits = phoneNumber.replace(/\D/g, '');
+
+    // Validation
+    if (!cleanName || cleanName.length < 2) {
+      setFormError('Please enter your full name (at least 2 letters).');
+      return;
+    }
+
+    if (!cleanPhoneDigits || cleanPhoneDigits.length < 7) {
+      setFormError('Please enter a valid mobile number (at least 7 digits).');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!cleanEmail || !emailRegex.test(cleanEmail)) {
+      setFormError('Please enter a valid email address (e.g. name@example.com).');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Real Supabase call
+      const result = await sendEmailOtp(cleanEmail);
+
+      if (!result.success) {
+        setFormError(result.error || 'Failed to send verification code.');
+        setIsLoading(false);
+        return;
+      }
+
+      // Store in localStorage for persistence
+      localStorage.setItem('lumysic_user_email', cleanEmail);
       localStorage.setItem('lumysic_user_name', cleanName);
-      localStorage.setItem('astral_customer_phone', cleanPhone);
-      localStorage.setItem('lumysic_user_phone', cleanPhone);
-      localStorage.setItem('astral_currency', resolvedCurrency);
-      localStorage.setItem('astral_is_logged_in', 'true');
-      completeAuth({
-        id: 'usr_' + Date.now(),
-        name: cleanName,
-        phone: cleanPhone,
-        country: selectedCountry.code,
-        countryCode: selectedCountry.dialCode,
-        currency: resolvedCurrency,
-        isFirstTimeUser: false,
-        freeMinutesUsed: false,
-        totalConsultations: 0
-      });
-    }, 450);
+      localStorage.setItem('lumysic_user_phone', `${selectedCountry.dialCode} ${phoneNumber.trim()}`);
+
+      setIsLoading(false);
+      setStep('otp');
+      setResendCountdown(60);
+      setOtp(['', '', '', '', '', '']);
+      setOtpError('');
+      setStatusMessage(`Verification code sent to ${cleanEmail}. Check your inbox or spam folder.`);
+      
+      // Auto-focus first digit
+      setTimeout(() => {
+        otpInputRefs.current[0]?.focus();
+      }, 150);
+    } catch (err: any) {
+      setIsLoading(false);
+      setFormError(err?.message || 'Network error sending OTP. Please try again.');
+    }
   };
 
+  // =========================================================================
+  // 2. RESEND EMAIL OTP
+  // =========================================================================
+  const handleResendOtp = async () => {
+    if (resendCountdown > 0 || isLoading) return;
+    setOtpError('');
+    setStatusMessage('');
+    setIsLoading(true);
+
+    const cleanEmail = emailAddress.trim().toLowerCase();
+    const result = await sendEmailOtp(cleanEmail);
+    setIsLoading(false);
+
+    if (result.success) {
+      setResendCountdown(60);
+      setStatusMessage(`A new 6-digit verification code was sent to ${cleanEmail}.`);
+      setOtp(['', '', '', '', '', '']);
+      otpInputRefs.current[0]?.focus();
+    } else {
+      setOtpError(result.error || 'Could not resend OTP. Please wait a moment and try again.');
+    }
+  };
+
+  // =========================================================================
+  // 3. OTP DIGIT INPUT NAVIGATION (6 DIGITS)
+  // =========================================================================
   const handleOtpChange = (index: number, val: string) => {
-    if (!/^\d*$/.test(val)) return;
+    // Only accept numeric inputs
+    const numericChar = val.replace(/\D/g, '');
+    
+    // Support paste of entire 6-digit code
+    if (numericChar.length > 1) {
+      const pastedDigits = numericChar.slice(0, 6).split('');
+      const newOtp = [...otp];
+      pastedDigits.forEach((d, i) => {
+        if (index + i < 6) newOtp[index + i] = d;
+      });
+      setOtp(newOtp);
+      const nextFocus = Math.min(index + pastedDigits.length, 5);
+      otpInputRefs.current[nextFocus]?.focus();
+      return;
+    }
+
     const nextOtp = [...otp];
-    nextOtp[index] = val.slice(-1);
+    nextOtp[index] = numericChar;
     setOtp(nextOtp);
 
-    // Auto-focus next input
-    if (val && index < 3) {
-      const nextInput = document.getElementById(`otp-input-${index + 1}`);
-      nextInput?.focus();
+    // Auto-advance focus to next input
+    if (numericChar && index < 5) {
+      otpInputRefs.current[index + 1]?.focus();
     }
   };
 
   const handleOtpKeyDown = (index: number, e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Backspace' && !otp[index] && index > 0) {
-      const prevInput = document.getElementById(`otp-input-${index - 1}`);
-      prevInput?.focus();
+    if (e.key === 'Backspace') {
+      if (!otp[index] && index > 0) {
+        otpInputRefs.current[index - 1]?.focus();
+      }
+    } else if (e.key === 'ArrowLeft' && index > 0) {
+      otpInputRefs.current[index - 1]?.focus();
+    } else if (e.key === 'ArrowRight' && index < 5) {
+      otpInputRefs.current[index + 1]?.focus();
     }
   };
 
-  const handleVerifyOtp = () => {
-    const fullOtp = otp.join('');
-    if (fullOtp.length < 4) {
-      setOtpError('Please enter all 4 digits');
+  // =========================================================================
+  // 4. VERIFY OTP WITH SUPABASE AUTH & SAVE PROFILE (RLS)
+  // =========================================================================
+  const handleVerifyOtp = async () => {
+    setOtpError('');
+    const fullOtp = otp.join('').trim();
+
+    if (fullOtp.length !== 6) {
+      setOtpError('Please enter the full 6-digit code sent to your email.');
       return;
     }
-    setIsVerifying(true);
-    setTimeout(() => {
-      setIsVerifying(false);
-      const cleanPhone = `${selectedCountry.dialCode} ${phoneNumber.trim()}`;
-      const finalName = userName.trim() || 'LUMSIC Seeker';
+
+    setIsLoading(true);
+
+    try {
+      const cleanEmail = emailAddress.trim().toLowerCase();
+      const result = await verifyEmailOtp(cleanEmail, fullOtp);
+
+      if (!result.success || !result.user) {
+        setIsLoading(false);
+        setOtpError(result.error || 'Invalid or expired verification code.');
+        return;
+      }
+
+      const user = result.user;
+      setAuthenticatedUserId(user.id);
+
+      // Check if user already has a saved profile in Supabase
+      const existingProfile = await getUserProfile(user.id);
+
+      const effectiveFullName = fullName.trim() || existingProfile?.full_name || '';
+      const effectivePhone = phoneNumber.trim() 
+        ? formatE164Phone(selectedCountry.dialCode, phoneNumber) 
+        : existingProfile?.phone || '';
+
+      // If user profile is missing name or phone (e.g. returning user with incomplete profile)
+      if (!effectiveFullName || !effectivePhone) {
+        setIsLoading(false);
+        setStep('profile_completion');
+        return;
+      }
+
+      // Upsert profile in Supabase `profiles` table (Protected by RLS)
+      await upsertUserProfile({
+        id: user.id,
+        full_name: effectiveFullName,
+        phone: effectivePhone,
+        email: cleanEmail,
+        country_code: selectedCountry.dialCode,
+        country: selectedCountry.code,
+        currency: selectedCountry.currency
+      });
+
+      // Save customer session locally for Lumysic application
       const resolvedCurrency = selectedCountry.code === 'GB' || selectedCountry.dialCode === '+44' ? 'GBP' : 'USD';
-      localStorage.setItem('astral_customer_name', finalName);
-      localStorage.setItem('lumysic_user_name', finalName);
-      localStorage.setItem('lumsic_user_name', finalName);
-      localStorage.setItem('astral_customer_phone', cleanPhone);
-      localStorage.setItem('lumysic_user_phone', cleanPhone);
-      localStorage.setItem('lumsic_user_phone', cleanPhone);
+      const formattedPhoneDisplay = `${selectedCountry.dialCode} ${phoneNumber.trim()}`;
+
+      localStorage.setItem('astral_customer_id', user.id);
+      localStorage.setItem('astral_customer_name', effectiveFullName);
+      localStorage.setItem('lumysic_user_name', effectiveFullName);
+      localStorage.setItem('lumsic_user_name', effectiveFullName);
+      localStorage.setItem('astral_customer_phone', formattedPhoneDisplay);
+      localStorage.setItem('lumysic_user_phone', formattedPhoneDisplay);
+      localStorage.setItem('lumsic_user_phone', formattedPhoneDisplay);
+      localStorage.setItem('lumysic_user_email', cleanEmail);
       localStorage.setItem('astral_currency', resolvedCurrency);
+      localStorage.setItem('astral_country', selectedCountry.code);
       localStorage.setItem('astral_is_logged_in', 'true');
-      completeAuth({
-        id: 'usr_' + Date.now(),
-        name: finalName,
-        phone: cleanPhone,
+      localStorage.setItem('lumysic_is_logged_in', 'true');
+
+      // Clear redirect target from sessionStorage
+      try {
+        sessionStorage.removeItem('lumysic_auth_redirect_target');
+      } catch {}
+
+      setIsLoading(false);
+
+      // Trigger login success with redirect target
+      onLoginSuccess({
+        id: user.id,
+        name: effectiveFullName,
+        email: cleanEmail,
+        phone: formattedPhoneDisplay,
         country: selectedCountry.code,
         countryCode: selectedCountry.dialCode,
         currency: resolvedCurrency,
         isFirstTimeUser: false,
         freeMinutesUsed: false,
         totalConsultations: 0
-      });
-    }, 600);
+      }, activeRedirect);
+
+    } catch (err: any) {
+      setIsLoading(false);
+      setOtpError(err?.message || 'An error occurred during verification. Please try again.');
+    }
   };
 
-  const handleGoogleLogin = () => {
-    setIsVerifying(true);
-    setTimeout(() => {
-      setIsVerifying(false);
-      const finalName = userName.trim() || 'LUMSIC Seeker';
-      const cleanPhone = `${selectedCountry.dialCode} ${phoneNumber.trim() || '50 123 4567'}`;
-      localStorage.setItem('astral_customer_name', finalName);
-      localStorage.setItem('lumysic_user_name', finalName);
-      localStorage.setItem('lumsic_user_name', finalName);
-      localStorage.setItem('astral_customer_phone', cleanPhone);
-      localStorage.setItem('lumysic_user_phone', cleanPhone);
-      localStorage.setItem('lumsic_user_phone', cleanPhone);
+  // =========================================================================
+  // 5. PROFILE COMPLETION SUBMISSION (FOR INCOMPLETE PROFILES)
+  // =========================================================================
+  const handleSaveProfileCompletion = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormError('');
+
+    const cleanName = fullName.trim();
+    const cleanPhoneDigits = phoneNumber.replace(/\D/g, '');
+
+    if (!cleanName || cleanName.length < 2) {
+      setFormError('Please enter your full name (at least 2 letters).');
+      return;
+    }
+
+    if (!cleanPhoneDigits || cleanPhoneDigits.length < 7) {
+      setFormError('Please enter a valid mobile number.');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      const cleanEmail = emailAddress.trim().toLowerCase();
+      const formattedE164 = formatE164Phone(selectedCountry.dialCode, phoneNumber);
+      const formattedPhoneDisplay = `${selectedCountry.dialCode} ${phoneNumber.trim()}`;
+      const resolvedCurrency = selectedCountry.code === 'GB' || selectedCountry.dialCode === '+44' ? 'GBP' : 'USD';
+
+      await upsertUserProfile({
+        id: authenticatedUserId,
+        full_name: cleanName,
+        phone: formattedE164,
+        email: cleanEmail,
+        country_code: selectedCountry.dialCode,
+        country: selectedCountry.code,
+        currency: selectedCountry.currency
+      });
+
+      localStorage.setItem('astral_customer_id', authenticatedUserId);
+      localStorage.setItem('astral_customer_name', cleanName);
+      localStorage.setItem('lumysic_user_name', cleanName);
+      localStorage.setItem('lumsic_user_name', cleanName);
+      localStorage.setItem('astral_customer_phone', formattedPhoneDisplay);
+      localStorage.setItem('lumysic_user_phone', formattedPhoneDisplay);
+      localStorage.setItem('lumsic_user_phone', formattedPhoneDisplay);
+      localStorage.setItem('lumysic_user_email', cleanEmail);
+      localStorage.setItem('astral_currency', resolvedCurrency);
+      localStorage.setItem('astral_country', selectedCountry.code);
       localStorage.setItem('astral_is_logged_in', 'true');
-      completeAuth({
-        id: 'usr_google_' + Date.now(),
-        name: finalName,
-        email: 'user@lumsic.com',
-        phone: cleanPhone,
+      localStorage.setItem('lumysic_is_logged_in', 'true');
+
+      setIsLoading(false);
+
+      onLoginSuccess({
+        id: authenticatedUserId,
+        name: cleanName,
+        email: cleanEmail,
+        phone: formattedPhoneDisplay,
         country: selectedCountry.code,
         countryCode: selectedCountry.dialCode,
-        currency: selectedCountry.currency,
+        currency: resolvedCurrency,
         isFirstTimeUser: false,
         freeMinutesUsed: false,
         totalConsultations: 0
-      });
-    }, 500);
+      }, activeRedirect);
+    } catch (err: any) {
+      setIsLoading(false);
+      setFormError(err?.message || 'Failed to update profile. Please try again.');
+    }
   };
 
   return (
@@ -252,11 +437,15 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
         {step === 'otp' ? (
           <button
             type="button"
-            onClick={() => setStep('phone')}
+            onClick={() => {
+              setStep('form');
+              setOtpError('');
+              setStatusMessage('');
+            }}
             className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Change Number</span>
+            <span>Change Email</span>
           </button>
         ) : onBackToSite ? (
           <button
@@ -294,9 +483,9 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
 
       {/* Main Centered Card Container */}
       <div className="w-full max-w-md my-auto relative z-10 flex flex-col items-center">
-        {/* LUMSIC Aries Celestial Logo Emblem - Perfectly sized */}
+        {/* LUMSIC Aries Celestial Logo Emblem */}
         <div className="mb-3 transition-transform duration-300 hover:scale-105">
-          <LumysicLogo size={88} glow={true} />
+          <LumysicLogo size={84} glow={true} />
         </div>
 
         {/* Stylish LUMSIC Brand Name */}
@@ -318,12 +507,12 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
             <span className="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-[#F6D06E]/70" />
           </div>
 
-          <p className="text-xs sm:text-sm text-[#FCE38A]/85 mt-2 mb-4 text-center font-medium tracking-wide">
+          <p className="text-xs sm:text-sm text-[#FCE38A]/85 mt-2 mb-3 text-center font-medium tracking-wide">
             Discover Your Cosmic Path &amp; Spiritual Guidance
           </p>
 
           {activeRedirect && (activeRedirect.profileName || activeRedirect.profileId) && (
-            <div className="mb-5 px-3.5 py-2 rounded-xl bg-amber-400/10 border border-amber-300/30 text-amber-200 text-xs flex items-center justify-center gap-2 max-w-sm text-center animate-in fade-in">
+            <div className="mb-4 px-3.5 py-1.5 rounded-xl bg-amber-400/10 border border-amber-300/30 text-amber-200 text-xs flex items-center justify-center gap-2 max-w-sm text-center animate-in fade-in">
               <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0" />
               <span>
                 Sign in to return directly to{' '}
@@ -336,58 +525,76 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
           )}
         </div>
 
-        {/* STEP 1: NAME & CONTACT NUMBER LOGIN */}
-        {step === 'phone' && (
+        {/* =========================================================================
+            STEP 1: LOGIN / SIGNUP WITH FULL NAME, MOBILE & EMAIL ADDRESS
+        ========================================================================= */}
+        {step === 'form' && (
           <div className="w-full bg-[#0D1536]/90 border border-indigo-900/60 rounded-3xl p-6 sm:p-7 shadow-2xl backdrop-blur-xl">
-            {/* Divider "Login or Sign Up" */}
+            {/* Header Title */}
             <div className="flex items-center gap-3 mb-5">
               <div className="flex-1 h-px bg-white/10" />
-              <span className="text-xs sm:text-sm text-slate-300 font-semibold tracking-wide">
-                Login or Create Account
+              <span className="text-xs sm:text-sm text-slate-300 font-semibold tracking-wide flex items-center gap-1.5">
+                <Shield className="w-3.5 h-3.5 text-[#F6D06E]" />
+                <span>Secure Email OTP Login</span>
               </span>
               <div className="flex-1 h-px bg-white/10" />
             </div>
 
-            {formError && (
-              <div className="mb-4 p-2.5 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-semibold text-center animate-in fade-in">
-                {formError}
+            {/* Supabase status warning if unconfigured */}
+            {!isSupabaseConfigured && (
+              <div className="mb-4 p-3 rounded-2xl bg-amber-500/10 border border-amber-400/30 text-amber-200 text-xs flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div className="leading-relaxed">
+                  <strong className="font-semibold text-amber-300">Supabase Auth Setup Required:</strong>
+                  <p className="mt-0.5 text-[11px] text-amber-200/90">
+                    Add <code className="bg-black/30 px-1 py-0.5 rounded text-amber-100">VITE_SUPABASE_URL</code> and <code className="bg-black/30 px-1 py-0.5 rounded text-amber-100">VITE_SUPABASE_ANON_KEY</code> to your environment to receive live OTP emails.
+                  </p>
+                </div>
               </div>
             )}
 
-            {/* Form: Name & Contact Number */}
-            <form onSubmit={handleInstantLogin} className="space-y-4">
-              {/* 1. Name Input */}
+            {formError && (
+              <div className="mb-4 p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-semibold flex items-center gap-2 animate-in fade-in">
+                <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                <span>{formError}</span>
+              </div>
+            )}
+
+            {/* Form Fields: Full Name, Mobile Number, Email */}
+            <form onSubmit={handleRequestEmailOtp} className="space-y-4">
+              {/* 1. Full Name */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-slate-300 flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5 text-[#F6D06E]" />
-                    <span>Your Name</span>
+                    <span>Full Name</span>
                   </span>
-                  <span className="text-[10px] text-amber-300/80 font-normal">Shown in profile</span>
+                  <span className="text-[10px] text-amber-300/80 font-normal">Required for readings</span>
                 </label>
                 <div className="relative">
                   <input
                     type="text"
-                    value={userName}
+                    value={fullName}
                     onChange={(e) => {
-                      setUserName(e.target.value);
+                      setFullName(e.target.value);
                       if (formError) setFormError('');
                     }}
-                    placeholder="Enter your name"
+                    placeholder="Enter your full name"
                     autoFocus
+                    required
                     className="w-full px-4 py-3 rounded-2xl bg-[#141E47] border border-indigo-800/80 focus:border-[#F6D06E] focus:outline-none text-white placeholder-slate-400 text-sm font-medium transition-all shadow-inner"
                   />
                 </div>
               </div>
 
-              {/* 2. Contact Number Input with Country Code Selector */}
+              {/* 2. Mobile Number (with Country Code Selector for USA +1, UK +44, etc.) */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-slate-300 flex items-center justify-between">
                   <span className="flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5 text-[#F6D06E]" />
-                    <span>Contact Number</span>
+                    <span>Mobile Number</span>
                   </span>
-                  <span className="text-[10px] text-slate-400 font-normal">Country dial code</span>
+                  <span className="text-[10px] text-slate-400 font-normal">Profile record only (No SMS code)</span>
                 </label>
                 <div className="flex items-stretch gap-2">
                   {/* Country Picker Button */}
@@ -402,7 +609,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
                     <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                   </button>
 
-                  {/* Mobile Number Input Field */}
+                  {/* Phone input */}
                   <div className="flex-1 relative">
                     <input
                       type="tel"
@@ -411,170 +618,262 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
                         setPhoneNumber(e.target.value);
                         if (formError) setFormError('');
                       }}
-                      placeholder="Enter contact number"
+                      placeholder={selectedCountry.code === 'US' ? 'e.g. 555 123 4567' : 'e.g. 7911 123456'}
+                      required
                       className="w-full h-full px-4 py-3 rounded-2xl bg-[#141E47] border border-indigo-800/80 focus:border-[#F6D06E] focus:outline-none text-white placeholder-slate-400 text-sm font-medium transition-all shadow-inner"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* Continue Buttons */}
-              <div className="space-y-2 pt-1">
-                <button
-                  type="submit"
-                  disabled={!userName.trim() || !phoneNumber.trim()}
-                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#F6D06E] via-[#FACC15] to-[#E5B744] hover:brightness-110 active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed text-gray-950 font-bold text-sm sm:text-base shadow-xl shadow-amber-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-300"
-                >
-                  <Sparkles className="w-4 h-4 fill-gray-950" />
-                  <span>Continue / Sign In</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={handleSendOtp}
-                  disabled={!userName.trim() || !phoneNumber.trim()}
-                  className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-semibold text-slate-300 hover:text-white transition-all cursor-pointer border border-white/10"
-                >
-                  Verify with 4-Digit OTP Code
-                </button>
+              {/* 3. Email Address Field */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-slate-300 flex items-center justify-between">
+                  <span className="flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-[#F6D06E]" />
+                    <span>Email Address</span>
+                  </span>
+                  <span className="text-[10px] text-emerald-400 font-medium">OTP Code Destination</span>
+                </label>
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={emailAddress}
+                    onChange={(e) => {
+                      setEmailAddress(e.target.value);
+                      if (formError) setFormError('');
+                    }}
+                    placeholder="e.g. seeker@example.com"
+                    required
+                    className="w-full px-4 py-3 rounded-2xl bg-[#141E47] border border-indigo-800/80 focus:border-[#F6D06E] focus:outline-none text-white placeholder-slate-400 text-sm font-medium transition-all shadow-inner"
+                  />
+                </div>
               </div>
-            </form>
 
-            {/* Divider "or" */}
-            <div className="flex items-center gap-3 my-5">
-              <div className="flex-1 h-px bg-white/10" />
-              <span className="text-xs text-slate-400 font-medium">or</span>
-              <div className="flex-1 h-px bg-white/10" />
-            </div>
+              {/* Clear Privacy Notice */}
+              <div className="p-3 rounded-xl bg-white/[0.04] border border-white/5 text-[11px] text-slate-300 leading-relaxed flex items-start gap-2">
+                <Lock className="w-3.5 h-3.5 text-amber-300 shrink-0 mt-0.5" />
+                <p>
+                  <strong className="text-white">Privacy Notice:</strong> Your email is strictly used for secure numeric OTP account verification, receipts, and order updates. We will never share or sell your details.
+                </p>
+              </div>
 
-            {/* Social Login: Google */}
-            <div className="grid grid-cols-1 gap-3">
-              {/* Google Button */}
+              {/* Primary Submit Button: "Continue with Email OTP" */}
               <button
-                type="button"
-                onClick={handleGoogleLogin}
-                className="py-3 px-3 rounded-2xl bg-white hover:bg-slate-100 text-gray-800 font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer border border-slate-200"
+                type="submit"
+                disabled={isLoading || !fullName.trim() || !phoneNumber.trim() || !emailAddress.trim()}
+                className="w-full mt-2 py-3.5 rounded-2xl bg-gradient-to-r from-[#F6D06E] via-[#FACC15] to-[#E5B744] hover:brightness-110 active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed text-gray-950 font-bold text-sm sm:text-base shadow-xl shadow-amber-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-300"
               >
-                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
-                  <path
-                    fill="#4285F4"
-                    d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                  />
-                  <path
-                    fill="#34A853"
-                    d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                  />
-                  <path
-                    fill="#FBBC05"
-                    d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"
-                  />
-                  <path
-                    fill="#EA4335"
-                    d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"
-                  />
-                </svg>
-                <span>Google</span>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin text-gray-950" />
+                    <span>Sending Real OTP...</span>
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-4 h-4 fill-gray-950" />
+                    <span>Continue with Email OTP</span>
+                  </>
+                )}
               </button>
-            </div>
-
-            {onBackToSite && (
-              <div className="mt-5 pt-4 border-t border-white/10 text-center">
-                <button
-                  type="button"
-                  onClick={onBackToSite}
-                  className="w-full py-2.5 px-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-amber-400/40 text-slate-300 hover:text-white font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <ArrowLeft className="w-3.5 h-3.5 text-[#F6D06E]" />
-                  <span>Back to Website</span>
-                </button>
-              </div>
-            )}
+            </form>
           </div>
         )}
 
-        {/* STEP 2: OTP VERIFICATION */}
+        {/* =========================================================================
+            STEP 2: 6-DIGIT REAL EMAIL OTP VERIFICATION SCREEN
+        ========================================================================= */}
         {step === 'otp' && (
           <div className="w-full bg-[#0D1536]/90 border border-indigo-900/60 rounded-3xl p-6 sm:p-7 shadow-2xl backdrop-blur-xl animate-in fade-in zoom-in-95 duration-200">
-            <div className="text-center mb-6">
+            {/* Header info */}
+            <div className="text-center mb-5">
+              <div className="w-12 h-12 rounded-2xl bg-amber-400/10 border border-amber-400/30 text-amber-300 flex items-center justify-center mx-auto mb-3 shadow-inner">
+                <Mail className="w-6 h-6" />
+              </div>
               <h3 className="text-lg font-bold text-white tracking-tight">
-                Enter Verification Code
+                Enter 6-Digit Email Code
               </h3>
-              <p className="text-xs text-slate-300 mt-1">
-                We sent a 4-digit code to{' '}
-                <span className="font-mono text-[#F6D06E] font-bold">
-                  {selectedCountry.dialCode} {phoneNumber}
+              <p className="text-xs text-slate-300 mt-1 max-w-xs mx-auto">
+                We sent a real verification code to:{' '}
+                <span className="font-semibold text-[#F6D06E] block mt-0.5 break-all">
+                  {emailAddress}
                 </span>
               </p>
             </div>
 
-            {/* 4-Digit Input Boxes */}
-            <div className="flex justify-center gap-3 my-6">
+            {/* Status notice */}
+            {statusMessage && (
+              <div className="mb-4 p-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-medium text-center animate-in fade-in">
+                {statusMessage}
+              </div>
+            )}
+
+            {/* Error notice */}
+            {otpError && (
+              <div className="mb-4 p-2.5 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-semibold text-center animate-in fade-in flex items-center justify-center gap-1.5">
+                <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                <span>{otpError}</span>
+              </div>
+            )}
+
+            {/* 6-Digit Input Boxes */}
+            <div className="flex justify-center gap-2 sm:gap-2.5 my-5">
               {otp.map((digit, idx) => (
                 <input
                   key={idx}
-                  id={`otp-input-${idx}`}
+                  ref={(el) => { otpInputRefs.current[idx] = el; }}
+                  id={`email-otp-input-${idx}`}
                   type="text"
                   inputMode="numeric"
                   maxLength={1}
                   value={digit}
                   onChange={(e) => handleOtpChange(idx, e.target.value)}
                   onKeyDown={(e) => handleOtpKeyDown(idx, e)}
-                  autoFocus={idx === 0}
-                  className="w-13 h-14 text-center text-xl font-bold font-mono rounded-2xl bg-[#141E47] border-2 border-indigo-800/80 focus:border-[#F6D06E] focus:outline-none text-white transition-all shadow-inner"
+                  disabled={isLoading}
+                  autoComplete="one-time-code"
+                  className="w-11 sm:w-12 h-13 sm:h-14 text-center text-xl sm:text-2xl font-bold font-mono rounded-2xl bg-[#141E47] border-2 border-indigo-800/80 focus:border-[#F6D06E] focus:outline-none text-white transition-all shadow-inner disabled:opacity-50"
                 />
               ))}
             </div>
-
-            {otpError && (
-              <p className="text-xs text-rose-400 text-center mb-3 font-semibold">
-                {otpError}
-              </p>
-            )}
 
             {/* Verify Button */}
             <button
               type="button"
               onClick={handleVerifyOtp}
-              disabled={isVerifying}
-              className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#F6D06E] via-[#FACC15] to-[#E5B744] hover:brightness-110 active:scale-[0.99] text-gray-950 font-bold text-sm sm:text-base shadow-xl shadow-amber-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-300"
+              disabled={isLoading || otp.join('').length !== 6}
+              className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#F6D06E] via-[#FACC15] to-[#E5B744] hover:brightness-110 active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed text-gray-950 font-bold text-sm sm:text-base shadow-xl shadow-amber-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer border border-amber-300"
             >
-              <Sparkles className="w-4 h-4 fill-gray-950" />
-              <span>{isVerifying ? 'Verifying...' : 'Verify & Enter'}</span>
+              {isLoading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin text-gray-950" />
+                  <span>Verifying Code...</span>
+                </>
+              ) : (
+                <>
+                  <Sparkles className="w-4 h-4 fill-gray-950" />
+                  <span>Verify OTP &amp; Enter</span>
+                </>
+              )}
             </button>
 
-            {/* Resend OTP */}
-            <div className="text-center mt-5 text-xs text-slate-400">
-              {resendCountdown > 0 ? (
-                <span>Resend code in <b className="text-white font-mono">{resendCountdown}s</b></span>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => setResendCountdown(30)}
-                  className="text-[#F6D06E] font-bold hover:underline cursor-pointer"
-                >
-                  Resend Verification Code
-                </button>
-              )}
+            {/* Options: Resend OTP and Change Email */}
+            <div className="flex items-center justify-between mt-5 pt-4 border-t border-white/10 text-xs text-slate-400">
+              <button
+                type="button"
+                onClick={() => {
+                  setStep('form');
+                  setOtpError('');
+                  setStatusMessage('');
+                }}
+                className="text-slate-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1"
+              >
+                <ArrowLeft className="w-3 h-3" />
+                <span>Change Email</span>
+              </button>
+
+              <div>
+                {resendCountdown > 0 ? (
+                  <span>Resend in <b className="text-amber-300 font-mono">{resendCountdown}s</b></span>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleResendOtp}
+                    disabled={isLoading}
+                    className="text-[#F6D06E] font-bold hover:underline cursor-pointer flex items-center gap-1"
+                  >
+                    <RefreshCw className="w-3 h-3" />
+                    <span>Resend OTP</span>
+                  </button>
+                )}
+              </div>
             </div>
+          </div>
+        )}
+
+        {/* =========================================================================
+            STEP 3: PROFILE COMPLETION (FOR RETURNING USERS MISSING NAME/PHONE)
+        ========================================================================= */}
+        {step === 'profile_completion' && (
+          <div className="w-full bg-[#0D1536]/90 border border-indigo-900/60 rounded-3xl p-6 sm:p-7 shadow-2xl backdrop-blur-xl animate-in fade-in">
+            <div className="text-center mb-5">
+              <h3 className="text-lg font-bold text-white tracking-tight">
+                Complete Your Profile
+              </h3>
+              <p className="text-xs text-slate-300 mt-1">
+                Your email is verified! Please provide your name and contact number for your psychic consultations.
+              </p>
+            </div>
+
+            {formError && (
+              <div className="mb-4 p-2.5 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-semibold text-center">
+                {formError}
+              </div>
+            )}
+
+            <form onSubmit={handleSaveProfileCompletion} className="space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-slate-300">Full Name</label>
+                <input
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  placeholder="Enter your full name"
+                  required
+                  className="w-full px-4 py-3 rounded-2xl bg-[#141E47] border border-indigo-800/80 focus:border-[#F6D06E] focus:outline-none text-white text-sm"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-semibold text-slate-300">Mobile Number</label>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsCountryPickerOpen(true)}
+                    className="px-3 py-3 rounded-2xl bg-[#141E47] border border-indigo-800/80 text-white font-semibold text-sm shrink-0 flex items-center gap-1"
+                  >
+                    <span>{selectedCountry.flag}</span>
+                    <span className="font-mono text-xs">{selectedCountry.dialCode}</span>
+                  </button>
+                  <input
+                    type="tel"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    placeholder="Enter contact number"
+                    required
+                    className="flex-1 px-4 py-3 rounded-2xl bg-[#141E47] border border-indigo-800/80 focus:border-[#F6D06E] focus:outline-none text-white text-sm"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#F6D06E] via-[#FACC15] to-[#E5B744] hover:brightness-110 text-gray-950 font-bold text-sm shadow-xl shadow-amber-500/20"
+              >
+                {isLoading ? 'Saving Profile...' : 'Save Profile & Continue'}
+              </button>
+            </form>
           </div>
         )}
       </div>
 
       {/* Footer Terms */}
       <div className="relative z-10 text-center text-[11px] text-slate-400 max-w-sm px-4 pt-4">
-        By continuing, you agree to our{' '}
+        Protected by Supabase Authentication &amp; 256-bit encryption. By continuing, you agree to our{' '}
         <span className="text-slate-300 underline cursor-pointer hover:text-white">Terms of Use</span> &amp;{' '}
         <span className="text-slate-300 underline cursor-pointer hover:text-white">Privacy Policy</span>.
       </div>
 
-      {/* COUNTRY CODE PICKER MODAL */}
+      {/* =========================================================================
+          COUNTRY CODE PICKER MODAL (USA, UK, GLOBAL)
+      ========================================================================= */}
       {isCountryPickerOpen && (
         <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-150">
           <div className="w-full max-w-md bg-[#0D1536] border border-indigo-900 rounded-t-3xl sm:rounded-3xl shadow-2xl p-5 max-h-[85vh] flex flex-col text-white">
             <div className="flex items-center justify-between pb-3 border-b border-white/10">
               <h3 className="text-base font-bold text-white flex items-center gap-2">
                 <Globe className="w-4 h-4 text-[#F6D06E]" />
-                <span>Select Your Country &amp; Currency</span>
+                <span>Select Your Country &amp; Dial Code</span>
               </h3>
               <button
                 type="button"
@@ -592,7 +891,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
                 type="text"
                 value={countrySearch}
                 onChange={(e) => setCountrySearch(e.target.value)}
-                placeholder="Search country, dial code (+971, +1, +44)..."
+                placeholder="Search country (USA, UK, +1, +44)..."
                 autoFocus
                 className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-[#141E47] border border-indigo-800 focus:border-[#F6D06E] focus:outline-none text-white text-xs sm:text-sm font-medium"
               />
@@ -623,13 +922,13 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
                       <div>
                         <div className="text-xs sm:text-sm font-bold text-white">{c.name}</div>
                         <div className="text-[11px] text-slate-400">
-                          Currency: <span className="text-[#F6D06E] font-semibold">{c.currency} ({c.currencySymbol.trim()})</span>
+                          Dial code: <span className="text-[#F6D06E] font-semibold">{c.dialCode}</span>
                         </div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-xs sm:text-sm font-bold text-slate-300">
-                        {c.dialCode}
+                        {c.currency}
                       </span>
                       {isSelected && <Check className="w-4 h-4 text-[#F6D06E]" />}
                     </div>

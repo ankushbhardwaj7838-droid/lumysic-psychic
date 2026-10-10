@@ -515,8 +515,31 @@ export const Header: React.FC<HeaderProps> = ({
                   )}
                 </AnimatePresence>
               </div>
-
-
+              {/* USER / ACCOUNT ICON SHOWING LOGIN STATUS */}
+              <button
+                type="button"
+                onClick={isAuthenticated ? (onOpenProfile || onOpenDrawer) : (onOpenLogin || onOpenDrawer)}
+                className={`relative p-2 sm:px-2.5 sm:py-1.8 rounded-full border transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 ${
+                  isAuthenticated
+                    ? 'bg-emerald-500/10 hover:bg-emerald-500/20 border-emerald-400/50 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.2)]'
+                    : 'bg-white/[0.04] hover:bg-white/[0.08] border-white/10 hover:border-[#F6D06E]/50 text-slate-200 hover:text-white'
+                }`}
+                title={isAuthenticated ? 'Account active (Signed in) - Tap to view profile' : 'Sign in to your Lumysic account'}
+                aria-label={isAuthenticated ? 'User profile active' : 'Sign in'}
+              >
+                <div className="relative">
+                  <User className={`w-4 h-4 ${isAuthenticated ? 'text-emerald-300' : 'text-[#F6D06E]'}`} />
+                  {/* Status dot */}
+                  <span 
+                    className={`absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full border border-[#060A1C] ${
+                      isAuthenticated ? 'bg-emerald-400 animate-pulse' : 'bg-slate-400'
+                    }`} 
+                  />
+                </div>
+                <span className="hidden sm:inline text-xs font-semibold">
+                  {isAuthenticated ? 'Account' : 'Sign In'}
+                </span>
+              </button>
 
               {/* Currency Selector (Desktop) */}
               <div className="hidden xl:block relative" data-currency-box>

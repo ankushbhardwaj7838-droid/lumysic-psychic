@@ -31,6 +31,7 @@ import { DailyHoroscopeModal } from './components/DailyHoroscopeModal';
 import { SacredRitualsModal } from './components/SacredRitualsModal';
 import { RitualsAndSpellsSection } from './components/RitualsAndSpellsSection';
 import { AuthScreen, AuthRedirectTarget } from './components/AuthScreen';
+import { supabase, signOutUser, getUserProfile, isSupabaseConfigured } from './lib/supabase';
 import { NavigationDrawer } from './components/NavigationDrawer';
 import { WalletTransactionModal } from './components/WalletTransactionModal';
 import { SupportChatModal } from './components/SupportChatModal';
@@ -95,6 +96,63 @@ export default function App() {
         }
       }
     });
+  }, []);
+
+  // Supabase Auth session synchronization & persistent profile hydration
+  useEffect(() => {
+    if (!isSupabaseConfigured) return;
+
+    // Check existing active session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        setIsAuthenticated(true);
+        localStorage.setItem('astral_is_logged_in', 'true');
+        localStorage.setItem('lumysic_is_logged_in', 'true');
+        
+        getUserProfile(session.user.id).then(profile => {
+          if (profile) {
+            setCustomer(prev => ({
+              ...prev,
+              id: profile.id,
+              name: profile.full_name || prev.name,
+              email: profile.email || prev.email,
+              phone: profile.phone || prev.phone,
+              country: profile.country || prev.country,
+              countryCode: profile.country_code || prev.countryCode,
+              currency: profile.currency || prev.currency
+            }));
+            if (profile.full_name) {
+              localStorage.setItem('astral_customer_name', profile.full_name);
+              localStorage.setItem('lumysic_user_name', profile.full_name);
+            }
+            if (profile.phone) {
+              localStorage.setItem('astral_customer_phone', profile.phone);
+              localStorage.setItem('lumysic_user_phone', profile.phone);
+            }
+            if (profile.email) {
+              localStorage.setItem('lumysic_user_email', profile.email);
+            }
+          }
+        });
+      }
+    });
+
+    // Subscribe to live auth state transitions
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setIsAuthenticated(true);
+        localStorage.setItem('astral_is_logged_in', 'true');
+        localStorage.setItem('lumysic_is_logged_in', 'true');
+      } else if (_event === 'SIGNED_OUT') {
+        setIsAuthenticated(false);
+        localStorage.removeItem('astral_is_logged_in');
+        localStorage.removeItem('lumysic_is_logged_in');
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
   }, []);
 
   // Customer Profile (saved or empty when not logged in)
@@ -792,13 +850,17 @@ export default function App() {
         onOpenSupport={() => setIsSupportOpen(true)}
         onOpenRedeem={() => setIsRedeemOpen(true)}
         onOpenSettings={() => setIsDashboardOpen(true)}
-        onLogout={() => {
+        onLogout={async () => {
+          await signOutUser();
           localStorage.removeItem('astral_is_logged_in');
           localStorage.removeItem('lumysic_is_logged_in');
           localStorage.removeItem('astral_customer_name');
           localStorage.removeItem('lumysic_user_name');
+          localStorage.removeItem('lumsic_user_name');
           localStorage.removeItem('astral_customer_phone');
           localStorage.removeItem('lumysic_user_phone');
+          localStorage.removeItem('lumsic_user_phone');
+          localStorage.removeItem('lumysic_user_email');
           setCustomer({
             id: 'cust_' + Date.now(),
             name: '',
