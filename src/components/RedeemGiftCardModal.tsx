@@ -28,18 +28,8 @@ export const RedeemGiftCardModal: React.FC<RedeemGiftCardModalProps> = ({
     const clean = code.trim().toUpperCase();
     if (!clean) return;
 
-    if (clean === 'ASTRAL50' || clean === 'WELCOME' || clean === 'COSMIC' || clean === 'ANKUSH') {
-      const added = clean === 'ASTRAL50' ? 50 : 100;
-      setRewardAmount(added);
-      setIsSuccess(true);
-      setError('');
-      setTimeout(() => {
-        onRedeemSuccess(added);
-        onClose();
-      }, 1500);
-    } else {
-      setError('Invalid or expired gift voucher code. Try demo code "ASTRAL50" or "WELCOME"');
-    }
+    // Gift card codes must be validated by a real backend. No client-side codes are accepted.
+    setError('Invalid or expired gift voucher code.');
   };
 
   return (
@@ -76,22 +66,11 @@ export const RedeemGiftCardModal: React.FC<RedeemGiftCardModalProps> = ({
                   setCode(e.target.value);
                   setError('');
                 }}
-                placeholder="Enter Code (e.g. WELCOME)"
+                placeholder="Enter Code"
                 autoFocus
                 className="w-full uppercase font-mono tracking-wider px-4 py-3 rounded-2xl bg-[#141E47] border border-indigo-800 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-400"
               />
               {error && <p className="text-[11px] text-rose-400 mt-1.5 font-medium">{error}</p>}
-            </div>
-
-            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] text-slate-400 flex items-center justify-between">
-              <span>Demo Gift Code:</span>
-              <button
-                type="button"
-                onClick={() => setCode('WELCOME')}
-                className="text-amber-300 font-bold hover:underline cursor-pointer"
-              >
-                Use "WELCOME" (+{symbol}100)
-              </button>
             </div>
 
             <button

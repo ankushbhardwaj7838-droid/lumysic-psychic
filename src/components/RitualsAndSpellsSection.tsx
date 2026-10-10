@@ -31,8 +31,6 @@ export const RitualsAndSpellsSection: React.FC<RitualsAndSpellsSectionProps> = (
   // Modals state
   const [selectedSpell, setSelectedSpell] = useState<RitualSpell | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<ShopProduct | null>(null);
-  const [bookedSpells, setBookedSpells] = useState<any[]>([]);
-  const [showHistory, setShowHistory] = useState(false);
   
   // Shop order flow
   const [orderQuantity, setOrderQuantity] = useState(1);
@@ -192,7 +190,6 @@ export const RitualsAndSpellsSection: React.FC<RitualsAndSpellsSectionProps> = (
   }, [liveProducts, shopFilter, searchQuery]);
 
   const handleBookingSuccess = (bookingDetails: any) => {
-    setBookedSpells(prev => [bookingDetails, ...prev]);
     setSelectedSpell(null);
   };
 
@@ -242,52 +239,7 @@ export const RitualsAndSpellsSection: React.FC<RitualsAndSpellsSectionProps> = (
           <p className="text-xs sm:text-sm text-gray-600 max-w-xl mx-auto mb-3.5">
             Explore authentic spellcraft ceremonies, distance energy healing transmissions, and consecrated astral amulets &amp; rings.
           </p>
-
-          <div className="flex items-center justify-center gap-2">
-            <button
-              onClick={() => setShowHistory(!showHistory)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-amber-300 bg-white hover:bg-amber-50 text-xs font-bold text-gray-900 transition-all cursor-pointer shadow-xs active:scale-95"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              <span>My Commissions</span>
-              {bookedSpells.length > 0 && (
-                <span className="w-4 h-4 rounded-full bg-amber-400 text-gray-950 font-extrabold text-[10px] flex items-center justify-center">
-                  {bookedSpells.length}
-                </span>
-              )}
-            </button>
-          </div>
         </div>
-
-        {/* History drawer if clicked */}
-        {showHistory && (
-          <div className="mb-6 p-4 rounded-2xl bg-white border border-amber-300 shadow-sm max-w-2xl mx-auto animate-in fade-in duration-200">
-            <h4 className="font-serif text-base font-bold text-gray-950 mb-2 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-600" />
-              <span>Your Active Commissioned Rituals</span>
-            </h4>
-            {bookedSpells.length === 0 ? (
-              <p className="text-xs text-gray-600">
-                You have no active commissioned rituals yet. Select a spell or healing session below to begin your personalized altar casting.
-              </p>
-            ) : (
-              <div className="space-y-2">
-                {bookedSpells.map((b, idx) => (
-                  <div key={idx} className="p-2.5 rounded-xl bg-amber-50/60 border border-amber-200 flex items-center justify-between text-xs">
-                    <div>
-                      <span className="font-bold text-gray-950">{b.spellName}</span>
-                      <span className="text-gray-600 ml-2 font-mono">For: {b.clientName}</span>
-                      {b.targetName && <span className="text-rose-600 ml-2 font-medium">♡ {b.targetName}</span>}
-                    </div>
-                    <span className="px-2 py-0.5 rounded-full bg-amber-200 text-amber-950 font-bold text-[10px] border border-amber-300">
-                      In Preparation
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
 
         {/* =========================================================================
             PRIMARY 3 OPTIONS REQUESTED BY USER: 1. SPELL, 2. HEALING, 3. SHOP

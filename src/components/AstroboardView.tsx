@@ -300,39 +300,6 @@ export const AstroboardView: React.FC<AstroboardViewProps> = ({
     }
   };
 
-  // Quick switch astrologer account
-  const handleSwitchAstrologer = (reader: Reader) => {
-    setCurrentAstrologer(reader);
-    localStorage.setItem('astrodashboard_logged_in_astro', JSON.stringify(reader));
-  };
-
-  // Simulate an incoming chat from Ankush landing for this Astro ID
-  const handleSimulateIncomingChat = async () => {
-    if (!currentAstrologer) return;
-
-    try {
-      const res = await fetch('/api/sessions/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          customerId: 'cust_ankush_' + Date.now(),
-          customerName: 'Ankush',
-          topic: 'Career & Life Path Guidance',
-          readingType: 'Astrology Consultation',
-          initialQuestion: 'Hello, I am looking for intuitive guidance on my path.',
-          requestedReaderId: currentAstrologer.astroId || currentAstrologer.id
-        })
-      });
-      const data = await res.json();
-      if (data.session) {
-        setSessions(prev => [data.session, ...prev]);
-        setActiveChatSession(data.session);
-      }
-    } catch (err) {
-      console.error('Failed to simulate chat:', err);
-    }
-  };
-
   // Send message in chat
   const handleSendMessage = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -365,32 +332,6 @@ export const AstroboardView: React.FC<AstroboardViewProps> = ({
           text: textToSend
         })
       });
-
-      // Natural simulated reply from Ankush after 1.5 seconds
-      setTimeout(async () => {
-        const replies = [
-          "Thank you for this guidance. That brings a lot of clarity.",
-          "Yes, exactly! I was feeling the same shift lately.",
-          "What should be my next step regarding this?",
-          "That aligns deeply with what I am experiencing right now."
-        ];
-        const randomReply = replies[Math.floor(Math.random() * replies.length)];
-        
-        try {
-          await fetch(`/api/sessions/${activeChatSession.id}/message`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              sender: 'customer',
-              senderName: activeChatSession.customerName || 'Ankush',
-              text: randomReply
-            })
-          });
-          fetchSessions();
-        } catch {
-          // ignore
-        }
-      }, 1500);
 
     } catch (err) {
       console.error('Failed to send message:', err);
@@ -838,16 +779,6 @@ export const AstroboardView: React.FC<AstroboardViewProps> = ({
               <span>{currentAstrologer?.isOnline ? 'Profile Online (Accepting Chats)' : 'Profile Offline'}</span>
             </button>
 
-            {/* Test Simulate Incoming Chat Button */}
-            <button
-              onClick={handleSimulateIncomingChat}
-              className="px-4 py-2 rounded-2xl bg-[#FF999D] hover:bg-[#FFA3A5] text-white text-xs font-black flex items-center gap-1.5 cursor-pointer transition-all shadow-xs active:scale-95"
-              title="Simulate an incoming seeker chat landing for this Astro ID"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>+ Simulate Incoming Chat (Ankush)</span>
-            </button>
-
           </div>
 
         </div>
@@ -996,44 +927,8 @@ export const AstroboardView: React.FC<AstroboardViewProps> = ({
                     When a seeker chooses your Astro ID ({currentAstrologer?.astroId || 'ASTRO-ID'}), the chat will land here in real time.
                   </p>
                 </div>
-                <button
-                  onClick={handleSimulateIncomingChat}
-                  className="px-5 py-2.5 rounded-full bg-[#FF999D] hover:bg-[#FFA3A5] text-white font-bold text-xs cursor-pointer shadow-xs"
-                >
-                  Click Here to Simulate a Chat from Ankush
-                </button>
               </div>
             )}
-
-            {/* Registered Astrologers Quick Switcher */}
-            <div className="bg-white rounded-3xl p-5 border border-[#D8D8D8] space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#777777]">
-                Quick Switch Registered Astro IDs
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                {readers.slice(0, 6).map(r => (
-                  <button
-                    key={r.id}
-                    onClick={() => handleSwitchAstrologer(r)}
-                    className={`p-3 rounded-2xl border text-left transition-all cursor-pointer flex items-center justify-between ${
-                      currentAstrologer?.id === r.id
-                        ? 'bg-[#F8D5E5] border-[#FF999D] text-[#171717]'
-                        : 'bg-[#F5F5F5] border-[#D8D8D8] text-[#777777] hover:text-[#171717]'
-                    }`}
-                  >
-                    <div className="min-w-0">
-                      <p className="font-bold text-xs truncate text-[#171717]">{r.name}</p>
-                      <p className="text-[10px] text-[#777777] truncate">
-                        ID: {r.astroId || r.id}
-                      </p>
-                    </div>
-                    {currentAstrologer?.id === r.id && (
-                      <Check className="w-4 h-4 text-[#FF999D] shrink-0" />
-                    )}
-                  </button>
-                ))}
-              </div>
-            </div>
 
           </div>
         )}
@@ -1312,29 +1207,6 @@ export const AstroboardView: React.FC<AstroboardViewProps> = ({
 
               </form>
             )}
-
-            {/* Demo 1-Click Astrologer Logins */}
-            <div className="pt-3 border-t border-[#D8D8D8] space-y-2">
-              <span className="text-[10px] font-bold uppercase text-[#777777] block">
-                1-Click Quick Demo Astro IDs:
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {readers.slice(0, 4).map(r => (
-                  <button
-                    key={r.id}
-                    type="button"
-                    onClick={() => {
-                      setCurrentAstrologer(r);
-                      localStorage.setItem('astrodashboard_logged_in_astro', JSON.stringify(r));
-                      setIsLoginModalOpen(false);
-                    }}
-                    className="px-2.5 py-1 rounded-xl bg-[#F5F5F5] hover:bg-[#E5D9FF] text-[#171717] text-[11px] font-bold border border-[#D8D8D8] cursor-pointer"
-                  >
-                    {r.name} ({r.astroId || 'ID'})
-                  </button>
-                ))}
-              </div>
-            </div>
 
           </div>
         </div>
