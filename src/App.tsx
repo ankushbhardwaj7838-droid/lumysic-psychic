@@ -30,7 +30,7 @@ import { DailyTarotModal } from './components/DailyTarotModal';
 import { DailyHoroscopeModal } from './components/DailyHoroscopeModal';
 import { SacredRitualsModal } from './components/SacredRitualsModal';
 import { RitualsAndSpellsSection } from './components/RitualsAndSpellsSection';
-import { AuthScreen } from './components/AuthScreen';
+import { AuthScreen, AuthRedirectTarget } from './components/AuthScreen';
 import { NavigationDrawer } from './components/NavigationDrawer';
 import { WalletTransactionModal } from './components/WalletTransactionModal';
 import { SupportChatModal } from './components/SupportChatModal';
@@ -59,6 +59,7 @@ export default function App() {
   const [isRitualsModalOpen, setIsRitualsModalOpen] = useState(false);
   const [ritualsInitialTab, setRitualsInitialTab] = useState<'spell' | 'healing' | 'shop'>('spell');
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authRedirectTarget, setAuthRedirectTarget] = useState<AuthRedirectTarget | null>(null);
 
   // Trigger popup screen for Birth Chart
   const handleOpenBirthChart = () => {
@@ -311,6 +312,11 @@ export default function App() {
   // Consultation Handlers
   const handleInitiateChatWithReader = (reader: Reader) => {
     if (!isAuthenticated) {
+      setAuthRedirectTarget({
+        profileId: reader.id,
+        profileName: reader.name,
+        profileType: 'reader'
+      });
       setSelectedProfileReader(null);
       setIsAuthModalOpen(true);
       return;
@@ -810,7 +816,8 @@ export default function App() {
       {isAuthModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md overflow-y-auto">
           <AuthScreen
-            onLoginSuccess={(profile) => {
+            redirectTarget={authRedirectTarget}
+            onLoginSuccess={(profile, redirect) => {
               localStorage.setItem('astral_is_logged_in', 'true');
               localStorage.setItem('lumysic_is_logged_in', 'true');
               if (profile.currency) {
@@ -837,8 +844,21 @@ export default function App() {
               }));
               setIsAuthenticated(true);
               setIsAuthModalOpen(false);
+
+              // UNIFIED REDIRECT: Automatically return user to specific profile page
+              const target = redirect || authRedirectTarget;
+              if (target && target.profileId) {
+                const targetReader = readers.find(r => r.id === target.profileId);
+                if (targetReader) {
+                  setSelectedProfileReader(targetReader);
+                }
+              }
+              setAuthRedirectTarget(null);
             }}
-            onBackToSite={() => setIsAuthModalOpen(false)}
+            onBackToSite={() => {
+              setIsAuthModalOpen(false);
+              setAuthRedirectTarget(null);
+            }}
             detectedGeo={detectedGeo}
           />
         </div>

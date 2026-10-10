@@ -4,17 +4,59 @@ import { COUNTRIES, CountryInfo, detectUserGeo } from '../utils/currency';
 import { CustomerProfile } from '../types';
 import { LumysicLogo } from './LumysicLogo';
 
+export interface AuthRedirectTarget {
+  profileId?: string;
+  profileName?: string;
+  profileType?: 'reader' | 'user' | 'intake';
+  returnUrl?: string;
+}
+
 interface AuthScreenProps {
-  onLoginSuccess: (profile: Partial<CustomerProfile>) => void;
+  onLoginSuccess: (profile: Partial<CustomerProfile>, redirect?: AuthRedirectTarget | null) => void;
   onBackToSite?: () => void;
   detectedGeo?: CountryInfo;
+  redirectTarget?: AuthRedirectTarget | null;
 }
 
 export const AuthScreen: React.FC<AuthScreenProps> = ({
   onLoginSuccess,
   onBackToSite,
-  detectedGeo
+  detectedGeo,
+  redirectTarget
 }) => {
+  // Unified authentication redirect logic:
+  // Detects pre-login profile targets from prop, sessionStorage, or URL hash
+  const [activeRedirect, setActiveRedirect] = useState<AuthRedirectTarget | null>(() => {
+    if (redirectTarget) return redirectTarget;
+    try {
+      const stored = sessionStorage.getItem('lumysic_auth_redirect_target');
+      if (stored) return JSON.parse(stored);
+      if (typeof window !== 'undefined' && window.location.hash) {
+        const hash = window.location.hash;
+        if (hash.startsWith('#reader-')) {
+          return { profileId: hash.replace('#reader-', ''), profileType: 'reader' };
+        }
+      }
+    } catch {}
+    return null;
+  });
+
+  useEffect(() => {
+    if (redirectTarget) {
+      setActiveRedirect(redirectTarget);
+      try {
+        sessionStorage.setItem('lumysic_auth_redirect_target', JSON.stringify(redirectTarget));
+      } catch {}
+    }
+  }, [redirectTarget]);
+
+  const completeAuth = (profile: Partial<CustomerProfile>) => {
+    try {
+      sessionStorage.removeItem('lumysic_auth_redirect_target');
+    } catch {}
+    onLoginSuccess(profile, activeRedirect);
+  };
+
   const [selectedCountry, setSelectedCountry] = useState<CountryInfo>(
     detectedGeo || COUNTRIES.find(c => c.code === 'US') || COUNTRIES[0]
   );
@@ -101,7 +143,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
       localStorage.setItem('lumysic_user_phone', cleanPhone);
       localStorage.setItem('astral_currency', resolvedCurrency);
       localStorage.setItem('astral_is_logged_in', 'true');
-      onLoginSuccess({
+      completeAuth({
         id: 'usr_' + Date.now(),
         name: cleanName,
         phone: cleanPhone,
@@ -155,7 +197,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
       localStorage.setItem('lumsic_user_phone', cleanPhone);
       localStorage.setItem('astral_currency', resolvedCurrency);
       localStorage.setItem('astral_is_logged_in', 'true');
-      onLoginSuccess({
+      completeAuth({
         id: 'usr_' + Date.now(),
         name: finalName,
         phone: cleanPhone,
@@ -182,7 +224,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
       localStorage.setItem('lumysic_user_phone', cleanPhone);
       localStorage.setItem('lumsic_user_phone', cleanPhone);
       localStorage.setItem('astral_is_logged_in', 'true');
-      onLoginSuccess({
+      completeAuth({
         id: 'usr_google_' + Date.now(),
         name: finalName,
         email: 'user@lumsic.com',
@@ -276,9 +318,22 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
             <span className="h-[1px] w-8 sm:w-12 bg-gradient-to-l from-transparent to-[#F6D06E]/70" />
           </div>
 
-          <p className="text-xs sm:text-sm text-[#FCE38A]/85 mt-2 mb-6 text-center font-medium tracking-wide">
+          <p className="text-xs sm:text-sm text-[#FCE38A]/85 mt-2 mb-4 text-center font-medium tracking-wide">
             Discover Your Cosmic Path &amp; Spiritual Guidance
           </p>
+
+          {activeRedirect && (activeRedirect.profileName || activeRedirect.profileId) && (
+            <div className="mb-5 px-3.5 py-2 rounded-xl bg-amber-400/10 border border-amber-300/30 text-amber-200 text-xs flex items-center justify-center gap-2 max-w-sm text-center animate-in fade-in">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+              <span>
+                Sign in to return directly to{' '}
+                <strong className="text-amber-300 font-semibold">
+                  {activeRedirect.profileName || activeRedirect.profileId}
+                </strong>
+                's profile
+              </span>
+            </div>
+          )}
         </div>
 
         {/* STEP 1: NAME & CONTACT NUMBER LOGIN */}

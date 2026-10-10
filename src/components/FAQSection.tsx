@@ -31,8 +31,27 @@ export const FAQSection: React.FC = () => {
     }
   ];
 
+  // Schema.org FAQPage JSON-LD structured data for search engine visibility
+  const faqPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a
+      }
+    }))
+  };
+
   return (
     <section id="faq" className="py-14 sm:py-18 bg-white border-b border-gray-200/80">
+      {/* FAQPage Structured Data (JSON-LD) for Search Engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
