@@ -8,3 +8,4 @@ coverage/
 public/*.zip
 .env*
 !.env.example
+data/astral_sage_db.json

@@ -516,20 +516,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </AnimatePresence>
               </div>
 
-            
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Admin</span>
-              </button>
 
-              {/* Astrodashboard Direct Button */}
-              <button
-                type="button"
-                onClick={() => handleNav('astrodashboard')}
-                className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.08] hover:bg-white/[0.15] border border-white/20 text-[#F5C542] text-xs font-bold transition-all cursor-pointer active:scale-95"
-                title="Astro Dashboard"
-              >
-                <span>Astroboard</span>
-              </button>
 
               {/* Currency Selector (Desktop) */}
               <div className="hidden xl:block relative" data-currency-box>
@@ -669,8 +656,6 @@ export const Header: React.FC<HeaderProps> = ({
                 {[
                   { label: 'Chat With Psychic (Live)', id: 'readers' },
                   { label: '💖 Best In Love Readings', id: 'readers' },
-                  { label: '⚡ LUMSIC Admin Dashboard (Control Center)', id: 'admin' },
-                  { label: '🪐 Astrologer Dashboard (Astrodashboard)', id: 'astrodashboard' },
                   { label: "Today's Horoscope", id: 'horoscope' },
                   { label: 'Daily Tarot Oracle', id: 'tarot' },
                   { label: 'Love Compatibility Score', id: 'compatibility' },

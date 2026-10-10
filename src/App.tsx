@@ -16,8 +16,6 @@ import { ReaderCollective } from './components/ReaderCollective';
 import { ReaderProfileModal } from './components/ReaderProfileModal';
 import { CustomerIntakeModal } from './components/CustomerIntakeModal';
 import { LiveChatView } from './components/LiveChatView';
-import { AstroboardView } from './components/AstroboardView';
-import { AdminCMSPanel } from './components/AdminCMSPanel';
 import { CompatibilitySection } from './components/CompatibilitySection';
 import { LearnSection } from './components/LearnSection';
 import { Footer } from './components/Footer';
@@ -43,8 +41,7 @@ import { Reader, ConsultationSession, CustomerProfile, ConsultationStartData, Ch
 import { READERS } from './data/readers';
 
 export default function App() {
-  // Navigation view: 'public' | 'astroboard' | 'admin'
-  const [viewMode, setViewMode] = useState<'public' | 'astroboard' | 'admin'>('public');
+
 
   // Readers state
   const [readers, setReaders] = useState<Reader[]>(READERS);
@@ -186,45 +183,7 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Check URL pathname or hash for /admin, /admin-dashboard, or /astroboard
-  useEffect(() => {
-    const handleLocation = () => {
-      const path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
-      const hash = window.location.hash.toLowerCase();
-      const search = window.location.search.toLowerCase();
-      const href = window.location.href.toLowerCase();
 
-      if (
-        path.includes('astrodashboard') || 
-        hash.includes('astrodashboard') ||
-        search.includes('astrodashboard') ||
-        path.includes('astroboard') || 
-        hash.includes('astroboard') ||
-        search.includes('astroboard')
-      ) {
-        setViewMode('astroboard');
-      } else if (
-        path.includes('admin') || 
-        hash.includes('admin') || 
-        search.includes('admin') || 
-        path.includes('admin-dashboard') ||
-        hash.includes('admin-dashboard') ||
-        href.includes('admin-dashboard') ||
-        href.includes('admin_dashboard')
-      ) {
-        setViewMode('admin');
-      } else {
-        setViewMode('public');
-      }
-    };
-    handleLocation();
-    window.addEventListener('popstate', handleLocation);
-    window.addEventListener('hashchange', handleLocation);
-    return () => {
-      window.removeEventListener('popstate', handleLocation);
-      window.removeEventListener('hashchange', handleLocation);
-    };
-  }, []);
 
   // Fetch readers from server
   useEffect(() => {
@@ -276,10 +235,6 @@ export default function App() {
     setIsExplorerOpen(false);
     setIsBirthChartModalOpen(false);
     setIsChatOpen(false);
-    if (viewMode !== 'public') {
-      window.history.pushState({}, '', '/');
-      setViewMode('public');
-    }
     setCurrentSection('home');
     setNavHistory(['home']);
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -297,16 +252,7 @@ export default function App() {
       handleGoHome();
       return;
     }
-    if (sectionId === 'admin' || sectionId === 'admin-dashboard') {
-      window.history.pushState({}, '', '/admin-dashboard');
-      setViewMode('admin');
-      return;
-    }
-    if (sectionId === 'astrodashboard' || sectionId === 'astroboard') {
-      window.history.pushState({}, '', '/astrodashboard');
-      setViewMode('astroboard');
-      return;
-    }
+
     if (sectionId === 'birth-chart') {
       handleOpenBirthChart();
       return;
@@ -354,13 +300,7 @@ export default function App() {
       }
     };
 
-    if (viewMode === 'astroboard' || viewMode === 'admin') {
-      window.history.pushState({}, '', '/');
-      setViewMode('public');
-      setTimeout(jumpToTarget, 20);
-    } else {
-      jumpToTarget();
-    }
+    jumpToTarget();
   };
 
   const handleOpenExplorer = (categoryId: string = 'astrology') => {
@@ -561,44 +501,7 @@ export default function App() {
     ? (readers.find(r => r.id === activeSession.requestedReaderId) || readers.find(r => r.id === activeSession.assignedReaderId) || readers[0])
     : readers[0];
 
-  // Admin Dashboard View
-  if (viewMode === 'admin') {
-    return (
-      <AdminCMSPanel
-        onBackToSite={() => {
-          window.history.pushState({}, '', '/');
-          window.location.hash = '';
-          setViewMode('public');
-        }}
-      />
-    );
-  }
 
-  // Astroboard View
-  if (viewMode === 'astroboard') {
-    return (
-      <AstroboardView
-        onBackToSite={() => {
-          window.history.pushState({}, '', '/');
-          window.location.hash = '';
-          setViewMode('public');
-        }}
-        onOpenAdmin={() => {
-          window.history.pushState({}, '', '/admin-dashboard');
-          window.location.hash = '';
-          setViewMode('admin');
-        }}
-        readers={readers}
-        onToggleReaderOnline={(readerId, isOnline) => {
-          fetch(`/api/readers/${readerId}/toggle`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ field: 'isOnline', value: isOnline })
-          }).catch(console.error);
-        }}
-      />
-    );
-  }
 
   return (
     <div className="min-h-screen bg-[#FFF8DF] text-[#2B2418] flex flex-col font-sans selection:bg-[#F4E7B8] selection:text-[#2B2418] relative">

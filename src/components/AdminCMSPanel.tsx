@@ -679,24 +679,28 @@ export const AdminCMSPanel: React.FC<AdminCMSPanelProps> = ({
               )}
             </div>
 
-            {/* Link to Astrodashboard for Astrologers */}
+            {/* Link to Astrologer Portal */}
             <a
-              href="/astrodashboard"
+              href="/astrologer.html"
+              target="_blank"
+              rel="noreferrer"
               className="hidden lg:flex text-xs font-bold text-slate-700 hover:text-rose-600 px-3 py-1.5 rounded-2xl border border-slate-200 hover:border-rose-300 transition-all items-center gap-1.5 cursor-pointer shadow-xs"
-              title="Open Astrologer Portal"
+              title="Open Astrologer Workstation (Standalone)"
             >
               <Sparkles className="w-3.5 h-3.5 text-rose-600" />
-              <span>Astro Portal</span>
+              <span>Astrologer Portal ↗</span>
             </a>
 
             {/* Back to Public Site */}
-            <button
-              onClick={onBackToSite}
+            <a
+              href="/"
+              target="_blank"
+              rel="noreferrer"
               className="text-xs font-bold text-slate-700 hover:text-rose-600 px-3 py-1.5 rounded-2xl border border-slate-200 hover:border-rose-300 transition-all flex items-center gap-1 cursor-pointer shadow-xs"
             >
-              <span>Main Site</span>
+              <span>Public Website ↗</span>
               <ChevronRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
 
           </div>
 
@@ -1957,7 +1961,7 @@ export const AdminCMSPanel: React.FC<AdminCMSPanelProps> = ({
                   <p><strong>Default Shift:</strong> {createdAstroReceipt.shift}</p>
                 </div>
                 <p className="text-[11px] text-emerald-700">
-                  The astrologer can now log in at <code>/astrodashboard</code> using their registered email and set their permanent password.
+                  The astrologer can now log in at the dedicated Astrologer Dashboard application using their registered email.
                 </p>
                 <button
                   onClick={() => setAstroModalOpen(false)}

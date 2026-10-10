@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe } from 'lucide-react';
+import { Globe, Sparkles } from 'lucide-react';
 import { LumysicLogo } from './LumysicLogo';
 
 interface FooterProps {
@@ -17,7 +17,7 @@ export const Footer: React.FC<FooterProps> = ({
     <footer className="bg-gradient-to-b from-[#FAF6EB] via-[#F7EFCB] to-[#F2E5BA] text-[#5C5343] border-t-2 border-[#E5D29C] pt-16 pb-24 lg:pb-12 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Columns Grid */}
+        {/* Main Columns Grid (Only verified features available on the website) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-[#E5D29C]/80">
           
           {/* Column 1: EXPLORE */}

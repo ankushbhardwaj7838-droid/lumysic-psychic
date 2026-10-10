@@ -1,0 +1,68 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with role and identity info",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "astrologer", "admin"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "AdminRole": {
+      "title": "AdminRole",
+      "description": "Administrator registration record",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "assignedBy": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "AstrologerRole": {
+      "title": "AstrologerRole",
+      "description": "Astrologer registration record linked to reader profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "readerId": { "type": "string" },
+        "isApproved": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "TestConnection": {
+      "title": "TestConnection",
+      "description": "Heartbeat collection for testing connection",
+      "type": "object",
+      "properties": {
+        "status": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Application users profile data"
+    },
+    "/admins/{adminId}": {
+      "schema": "AdminRole",
+      "description": "Designated administrators of the system"
+    },
+    "/astrologers/{astrologerId}": {
+      "schema": "AstrologerRole",
+      "description": "Designated astrologers with consultation dashboard access"
+    },
+    "/test/{testId}": {
+      "schema": "TestConnection",
+      "description": "Test connection endpoint"
+    }
+  }
+}

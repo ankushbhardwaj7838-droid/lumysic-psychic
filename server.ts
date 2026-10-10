@@ -54,6 +54,102 @@ app.get('/download-code', (_req: Request, res: Response) => {
   }
 });
 
+// Safe Firebase Config route (no secrets)
+app.get('/api/firebase-config', (_req: Request, res: Response) => {
+  const configPath = path.join(__dirname, 'firebase-applet-config.json');
+  if (fs.existsSync(configPath)) {
+    const data = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+    res.json(data);
+  } else {
+    res.status(404).json({ error: 'Config not found' });
+  }
+});
+
+// User role management store
+interface UserRoleRecord {
+  email: string;
+  uid?: string;
+  role: 'admin' | 'astrologer' | 'user';
+  name?: string;
+  assignedAt: string;
+}
+
+const ROLES_STORE: Record<string, UserRoleRecord> = {
+  'bankush014@gmail.com': {
+    email: 'bankush014@gmail.com',
+    role: 'admin',
+    name: 'Super Admin',
+    assignedAt: new Date().toISOString()
+  }
+};
+
+// Check user role
+app.get('/api/auth/role', (req: Request, res: Response) => {
+  const email = (req.query.email as string || '').toLowerCase().trim();
+  const uid = (req.query.uid as string || '').trim();
+
+  if (!email && !uid) {
+    return res.status(400).json({ error: 'Email or UID required' });
+  }
+
+  // Super admin check
+  if (email === 'bankush014@gmail.com') {
+    return res.json({ role: 'admin', isAdmin: true, isAstrologer: false });
+  }
+
+  // Check stored roles
+  if (email && ROLES_STORE[email]) {
+    const rec = ROLES_STORE[email];
+    return res.json({
+      role: rec.role,
+      isAdmin: rec.role === 'admin',
+      isAstrologer: rec.role === 'astrologer'
+    });
+  }
+
+  // Check astrologers list
+  const isAstrologerEmail = READERS.some(r => 
+    (r as any).email?.toLowerCase() === email ||
+    email.includes('astro') ||
+    email.includes('astrodashboard')
+  );
+
+  if (isAstrologerEmail) {
+    return res.json({ role: 'astrologer', isAdmin: false, isAstrologer: true });
+  }
+
+  return res.json({ role: 'user', isAdmin: false, isAstrologer: false });
+});
+
+// List roles for admin
+app.get('/api/admin/roles', (_req: Request, res: Response) => {
+  res.json({
+    roles: Object.values(ROLES_STORE),
+    astrologers: READERS.map(r => ({
+      id: r.id,
+      name: r.name,
+      email: (r as any).email || `${r.id}@astrodashboard.com`,
+      role: 'astrologer'
+    }))
+  });
+});
+
+// Assign role
+app.post('/api/admin/roles/assign', (req: Request, res: Response) => {
+  const { email, role, name } = req.body;
+  if (!email || !role) {
+    return res.status(400).json({ error: 'Email and role required' });
+  }
+  const cleanEmail = email.toLowerCase().trim();
+  ROLES_STORE[cleanEmail] = {
+    email: cleanEmail,
+    role,
+    name: name || cleanEmail.split('@')[0],
+    assignedAt: new Date().toISOString()
+  };
+  res.json({ success: true, record: ROLES_STORE[cleanEmail] });
+});
+
 // Gemini AI client initialization for LUMYSIC Psychic – AI Guide
 let aiClient: GoogleGenAI | null = null;
 try {
@@ -2110,8 +2206,22 @@ app.get('/api/admin/earnings/date-wise', (req: Request, res: Response) => {
 
 // Initialize Vite in middleware mode for dev
 async function setupApp() {
+  // Standalone app direct navigation
+  app.get('/admin', (_req: Request, res: Response) => {
+    res.redirect('/admin.html');
+  });
+  app.get('/astrologer', (_req: Request, res: Response) => {
+    res.redirect('/astrologer.html');
+  });
+
   if (process.env.NODE_ENV === 'production' && fs.existsSync(path.join(__dirname, 'dist'))) {
     app.use(express.static(path.join(__dirname, 'dist')));
+    app.get(['/admin', '/admin.html'], (_req: Request, res: Response) => {
+      res.sendFile(path.join(__dirname, 'dist', 'admin.html'));
+    });
+    app.get(['/astrologer', '/astrologer.html'], (_req: Request, res: Response) => {
+      res.sendFile(path.join(__dirname, 'dist', 'astrologer.html'));
+    });
     app.get('*', (_req: Request, res: Response) => {
       res.sendFile(path.join(__dirname, 'dist', 'index.html'));
     });
